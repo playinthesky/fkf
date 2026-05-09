@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "gdrive": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-server-gdrive"],
+      "env": {
+        "GOOGLE_CREDENTIALS_PATH": "/home/user/.config/google-drive-mcp/credentials.json"
+      }
+    }
+  }
+}
