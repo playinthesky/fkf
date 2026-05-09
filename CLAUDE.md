@@ -7,15 +7,38 @@
 
 ---
 
+## 현재 진행 중인 작업: 2026 제주DA 파트너스 원탁회의
+
+### 사업 개요 (Google Drive에서 확인 필요)
+- **사업명**: 2026 제주DA 파트너스 원탁회의
+- **부제**: 제주DA 앱개선 관련 (정확한 문구는 Google Drive 회의록/보도자료 참조)
+- **사업기간**: Google Drive 회의록 참조 (60일 아님 - 확인 필요)
+- **사업비**: 50,000,000원 (부가세 포함, 수의계약)
+- **발주처**: 제주특별자치도 농업기술원 / 농업디지털센터
+
+### 세션 시작 시 즉시 해야 할 일
+1. Google Drive에서 **회의록**, **보도자료** 검색
+2. 사업명, 부제, 사업기간 등 프로젝트 개요 정보 확인
+3. 아래 문서들에 정확한 정보 반영:
+   - `산출내역서_초초안_제주DA원탁회의_50M.md`
+   - `과업지시서_제주DA원탁회의_50M.md`
+   - `이메일_초안_제주DA원탁회의.md`
+
+### 주의사항
+- 프로젝트 개요(사업명, 기간, 목적 등)는 **반드시 근거 문서 참조**
+- 임의로 숫자나 기간 넣지 말 것
+
+---
+
 ## Google Drive MCP 설정
 
 ### 인증 정보
 - **Client ID**: `263821764650-l286sqqndvftnl9sqeleqklscdcmlll7.apps.googleusercontent.com`
 - **Project ID**: `gen-lang-client-0712788641`
-- **Credentials 파일**: `/home/user/.config/google-drive-mcp/credentials.json`
+- **Credentials 파일**: `~/.config/google-drive-mcp/credentials.json`
 
 ### MCP 서버 설정
-- **설정 파일**: `/home/user/fkf/.mcp.json`
+- **설정 파일**: `~/.mcp.json` 또는 프로젝트 폴더 `.mcp.json`
 - **서버 이름**: `gdrive`
 - **패키지**: `@anthropic-ai/mcp-server-gdrive`
 
@@ -28,7 +51,7 @@
 ## 중요 파일 위치
 
 ### 견적 양식
-- **종합 견적서 양식**: Google Drive에서 검색 필요 (세션 시작 시 확인)
+- **종합 견적서 양식**: Google Drive에서 검색 필요
 
 ### 현재 프로젝트 문서
 - 산출내역서: `산출내역서_초초안_제주DA원탁회의_50M.md`
@@ -43,5 +66,6 @@
 ---
 
 ## TODO (잊지 말 것)
+- [ ] Google Drive에서 회의록/보도자료 찾아서 사업 개요 확정
 - [ ] 리멤버 앱 → CSV → 구글시트 자동화 구현
 - [ ] 종합 견적서 양식 파일 찾기 (Google Drive)
