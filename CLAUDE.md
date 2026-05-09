@@ -1,5 +1,12 @@
 # FKF 프로젝트 설정
 
+## ⚠️ 세션 시작 시 필수 확인
+
+1. **Google Drive MCP 연결 확인** - `mcp__gdrive__*` 도구 사용 가능한지 확인
+2. 안 되면 → `.mcp.json` 설정 확인 및 MCP 서버 활성화
+
+---
+
 ## Google Drive MCP 설정
 
 ### 인증 정보
