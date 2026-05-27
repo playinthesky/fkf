@@ -1,0 +1,160 @@
+# 코리아스픽스 역할별 업무 매핑
+# 버전: v0.1.0
+# 용도: AI/시스템이 읽을 수 있는 역할 정의
+
+version: "0.1.0"
+last_updated: "2026-05-12"
+
+roles:
+  대표:
+    name: "대표"
+    person: "이병덕"
+    responsibilities:
+      - 전략 결정
+      - 제안서 검토
+      - 계약 승인
+      - 보고서 최종 검토
+      - 발주처 핵심 미팅
+      - 컨설팅 모델 PR 승인
+    stages:
+      plan: ["제안서 검토", "계약 승인"]
+      build: ["실행계획서 검토"]
+      launch: ["킥오프 참석 (필요시)"]
+      run: ["개회사 (필요시)"]
+      evolve: ["보고서 검토", "발주처 미팅"]
+
+  담당컨설턴트:
+    name: "담당 컨설턴트"
+    responsibilities:
+      - 프로젝트 총괄
+      - 클라이언트 소통
+      - 문서 작성
+      - 일정 관리
+      - 결과 발표
+      - 회고 진행
+    stages:
+      plan: ["상담", "제안서 작성", "협상"]
+      build: ["의제 설계", "프로세스 설계", "자료 준비"]
+      launch: ["참여자 관리", "발주처 소통", "점검"]
+      run: ["전체 총괄", "일일 보고"]
+      evolve: ["보고서 작성", "발표", "회고"]
+
+  퍼실리테이터:
+    name: "퍼실리테이터"
+    responsibilities:
+      - 소그룹 진행
+      - 의견 수렴
+      - 토론 촉진
+      - 시간 관리
+      - 갈등 조정
+    stages:
+      plan: []
+      build: ["프로세스 설계 참여"]
+      launch: ["리허설 참여", "가이드 숙지"]
+      run: ["소그룹 진행", "의견 수렴"]
+      evolve: ["회고 참여"]
+
+  운영팀:
+    name: "운영팀"
+    responsibilities:
+      - 접수/등록
+      - 장소 관리
+      - 장비 관리
+      - 키트 준비
+      - 식음료
+    stages:
+      plan: []
+      build: []
+      launch: ["장소·장비 점검", "키트 제작"]
+      run: ["접수", "장비 운영", "식음료"]
+      evolve: ["자료 정리"]
+
+  기록팀:
+    name: "기록팀"
+    responsibilities:
+      - 토론 기록
+      - 사진/영상
+      - 데이터 입력
+    stages:
+      plan: []
+      build: []
+      launch: []
+      run: ["토론 기록", "사진 촬영"]
+      evolve: ["기록 정리"]
+
+ai_roles:
+  claude:
+    name: "Claude (비서실장)"
+    type: "AI"
+    responsibilities:
+      - 문서 초안 작성
+      - 의제 구조화
+      - 데이터 분석
+      - 보고서 초안
+      - 컨설팅 모델 PR 생성
+      - 실시간 요약 (AI BDL)
+    stages:
+      plan: ["제안서 초안 보조", "예산 검토"]
+      build: ["의제 구조화", "자료 초안"]
+      launch: ["안내문 초안", "체크리스트 점검"]
+      run: ["실시간 요약"]
+      evolve: ["보고서 초안", "분석", "모델 PR"]
+
+  codex:
+    name: "Codex (별동수)"
+    type: "AI"
+    responsibilities:
+      - 캘린더 시스템
+      - 문서 버전관리
+      - GitHub 관리
+      - 사례 아카이브
+    stages:
+      plan: []
+      build: ["캘린더 업데이트"]
+      launch: []
+      run: []
+      evolve: ["모델 버전관리", "사례 아카이브"]
+
+  antigravity:
+    name: "안티그래비티"
+    type: "Automation"
+    responsibilities:
+      - 스케줄 트리거
+      - 자동화 실행
+      - 시스템 연동
+    triggers:
+      - schedule: "매일 18:00"
+        action: "AI 학습 루프"
+      - schedule: "매주 목 14:00"
+        action: "주간보고 생성"
+
+channels:
+  daily-log:
+    name: "#daily-log"
+    purpose: "직원 데일리 활동"
+    who_uses: ["전 직원"]
+
+  weekly-report:
+    name: "#weekly-report"
+    purpose: "주간보고"
+    who_uses: ["담당컨설턴트", "Claude"]
+
+  client-project:
+    name: "#client-프로젝트명"
+    purpose: "클라이언트별 소통"
+    who_uses: ["담당컨설턴트", "발주처"]
+
+  budget:
+    name: "#budget"
+    purpose: "예산/비용"
+    who_uses: ["담당컨설턴트", "대표"]
+
+  ai-learning:
+    name: "#ai-learning"
+    purpose: "AI 학습 결과/노하우 공유"
+    who_uses: ["전 직원", "Claude"]
+
+  ax-qna:
+    name: "#ax-qna"
+    purpose: "AX 도구 질문"
+    who_uses: ["전 직원", "Claude"]
