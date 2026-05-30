@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>fKF 정회원 마이페이지</title>
+<style>
+  :root { --navy:#0A1628; --navy2:#1B3A6B; --gold:#C9A227; --bg:#FAF8F3; --line:#E4DFD4;
+          --ink:#1C2536; --muted:#6B7280; --card:#fff; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif; background:var(--bg); color:var(--ink); }
+  .topbar { background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 100%); color:#fff;
+            padding:1.1rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
+  .topbar .mark { font-size:1.25rem; font-weight:900; }
+  .topbar .mark small { font-weight:600; opacity:.8; font-size:.72rem; margin-left:.5rem; }
+  .logout { color:#fff; text-decoration:none; font-size:.8rem; font-weight:700; border:1px solid rgba(255,255,255,.35);
+            border-radius:.5rem; padding:.4rem .8rem; transition:background .15s; }
+  .logout:hover { background:rgba(255,255,255,.12); }
+  .container { max-width:880px; margin:0 auto; padding:1.5rem; }
+  .section { background:var(--card); border:1px solid var(--line); border-radius:.9rem; padding:1.4rem 1.5rem; margin-bottom:1.25rem;
+             box-shadow:0 8px 22px rgba(10,22,40,.05); }
+  .section h2 { font-size:.95rem; font-weight:800; margin-bottom:1rem; display:flex; align-items:center; gap:.5rem; }
+  .section h2::before { content:""; width:4px; height:1rem; background:var(--gold); border-radius:2px; display:inline-block; }
+  /* 프로필 헤더 */
+  .profile { display:flex; align-items:center; gap:1.1rem; flex-wrap:wrap; }
+  .avatar { width:60px; height:60px; border-radius:50%; background:linear-gradient(160deg,var(--navy),var(--navy2));
+            color:#fff; display:flex; align-items:center; justify-content:center; font-size:1.5rem; font-weight:900; flex:none; }
+  .profile .who .name { font-size:1.3rem; font-weight:900; }
+  .profile .who .no { font-size:.82rem; color:var(--muted); margin-top:.15rem; }
+  .meta { display:flex; gap:1.5rem; flex-wrap:wrap; margin-left:auto; }
+  .meta div { font-size:.82rem; }
+  .meta .k { color:var(--muted); font-weight:700; font-size:.72rem; }
+  /* 자격/이수 그리드 */
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:.75rem; }
+  .item { border:1px solid var(--line); border-radius:.6rem; padding:.8rem .9rem; background:#FCFBF8; }
+  .item .label { font-size:.72rem; color:var(--muted); font-weight:700; margin-bottom:.3rem; }
+  .item .value { font-size:.92rem; font-weight:700; }
+  .badge { display:inline-block; font-size:.72rem; font-weight:800; padding:.18rem .55rem; border-radius:999px; }
+  .badge.ok { background:#E7F4EC; color:#1E7A46; border:1px solid #BFE3CC; }
+  .badge.no { background:#F3F4F6; color:#9AA1AC; border:1px solid #E4E7EB; }
+  /* 표 */
+  table { width:100%; border-collapse:collapse; font-size:.85rem; }
+  th, td { padding:.6rem .65rem; text-align:center; border-bottom:1px solid var(--line); }
+  thead th { background:#F4F1EA; font-size:.74rem; color:var(--navy2); font-weight:800; }
+  tbody tr:last-child td { border-bottom:none; }
+  td.l, th.l { text-align:left; }
+  .empty { color:var(--muted); font-size:.84rem; text-align:center; padding:1rem; }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="mark">fKF <small>정회원 마이페이지</small></div>
+  <a class="logout" href="/logout">로그아웃</a>
+</div>
+
+<div class="container">
+  <!-- 프로필 -->
+  <div class="section">
+    <div class="profile">
+      <div class="avatar">{{ (m.name or '회')[0] }}</div>
+      <div class="who">
+        <div class="name">{{ m.name }}</div>
+        <div class="no">회원번호 {{ m.member_no }}</div>
+      </div>
+      <div class="meta">
+        {% if m.org %}<div><div class="k">소속</div>{{ m.org }}</div>{% endif %}
+        {% if m.region %}<div><div class="k">활동지역</div>{{ m.region }}</div>{% endif %}
+        {% if m.phone %}<div><div class="k">연락처</div>{{ m.phone }}</div>{% endif %}
+        {% if m.email %}<div><div class="k">이메일</div>{{ m.email }}</div>{% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- 자격 등급 -->
+  <div class="section">
+    <h2>자격 등급</h2>
+    <div class="grid">
+      <div class="item">
+        <div class="label">fKF 자격등급 (급수 / 취득일)</div>
+        <div class="value">{{ m.fkf_grade or '—' }}</div>
+      </div>
+      <div class="item">
+        <div class="label">민간자격 등급 (급수 / 취득일)</div>
+        <div class="value">{{ m.private_grade or '—' }}</div>
+      </div>
+      {% if m.pg %}
+      <div class="item">
+        <div class="label">PG (등급 코드)</div>
+        <div class="value">{{ m.pg }}</div>
+      </div>
+      {% endif %}
+      <div class="item">
+        <div class="label">Specialties (전문분야)</div>
+        <div class="value">{{ m.specialties or '—' }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 교육 이수 현황 -->
+  <div class="section">
+    <h2>교육 이수 현황</h2>
+    <div class="grid">
+      <div class="item">
+        <div class="label">CPR교육 수료</div>
+        <div class="value">{{ m.cpr or '미수료' }}</div>
+      </div>
+      <div class="item">
+        <div class="label">성인지 &amp; 아동감수성교육</div>
+        <div class="value">{{ m.sensitivity_edu or '미이수' }}</div>
+      </div>
+      <div class="item">
+        <div class="label">청소년토론지도사 자격</div>
+        <div class="value">
+          {% if m.youth_debate %}<span class="badge ok">{{ m.youth_debate }}</span>
+          {% else %}<span class="badge no">미보유</span>{% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 연도별 실적 -->
+  <div class="section">
+    <h2>연도별 실적</h2>
+    <table>
+      <thead>
+        <tr><th class="l">구분</th><th>세미나 시간</th><th>프로보노 시간</th><th>프로젝트 투입횟수</th></tr>
+      </thead>
+      <tbody>
+        {% for y in years %}
+        <tr>
+          <td class="l">{{ y }}년도 실적</td>
+          <td>{{ m.performance[y].seminar_hours }}</td>
+          <td>{{ m.performance[y].probono_hours }}</td>
+          <td>{{ m.performance[y].project_count }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p class="empty" style="text-align:left;padding:.6rem 0 0;">※ 2022년 이전 실적은 세부사항에서 확인하시기 바랍니다.</p>
+  </div>
+
+  <!-- 실적 세부사항 -->
+  <div class="section">
+    <h2>실적 세부사항</h2>
+    {% if m.records %}
+    <table>
+      <thead>
+        <tr><th>날짜</th><th>구분</th><th class="l">세미나/프로젝트명</th><th>역할</th><th>세미나 시간</th><th>프로보노 시간</th></tr>
+      </thead>
+      <tbody>
+        {% for r in m.records %}
+        <tr>
+          <td>{{ r.date }}</td>
+          <td>{{ r.type }}</td>
+          <td class="l">{{ r.name }}</td>
+          <td>{{ r.role or '—' }}</td>
+          <td>{{ r.seminar_hours or 0 }}</td>
+          <td>{{ r.probono_hours or 0 }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p class="empty">표시할 실적 세부사항이 없습니다.</p>
+    {% endif %}
+  </div>
+</div>
+</body>
+</html>
