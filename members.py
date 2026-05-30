@@ -23,12 +23,17 @@
 """
 
 import os
+import re
 
+# 기본으로 비워둘 연도(데이터가 없어도 표에 노출). 시트에서 연도 컬럼을
+# 발견하면 동적으로 추가됩니다.
 PERFORMANCE_YEARS = ["2026", "2025", "2024"]
 
-# 마스터 시트 회원 명단 탭의 헤더 → 레코드 필드 매핑.
-# 실제 마스터 시트의 헤더에 맞춰 환경에 따라 조정할 수 있습니다.
+# 마스터 시트('fKF_회원 관리') 명단 탭의 헤더 → 레코드 필드 매핑.
+# 조회 카드 스타일과 마스터('*_print'/'MDB') 스타일 헤더를 모두 수용합니다.
+# 실제 탭 헤더가 다르면 이 매핑만 조정하면 됩니다.
 ROSTER_HEADER_MAP = {
+    # 식별/연락
     "회원번호": "member_no",
     "이름": "name",
     "성명": "name",
@@ -36,17 +41,34 @@ ROSTER_HEADER_MAP = {
     "이메일": "email",
     "이 메 일": "email",
     "활동지역": "region",
+    "지역": "region",
+    "주소": "region",
+    "소속": "org",
+    "생년월일": "birth",
+    "나이": "age",
+    "성별": "gender",
+    "비고": "note",
+    # 자격/등급
     "fKF 자격등급": "fkf_grade",
+    "fKF등급": "fkf_grade",
     "fkf자격등급": "fkf_grade",
     "민간자격 등급": "private_grade",
     "민간자격등급": "private_grade",
+    "민간 자격": "private_grade",
+    "PG": "pg",
     "Specialties": "specialties",
+    "Specialty": "specialties",
     "전문분야": "specialties",
+    # 교육 이수
     "CPR교육 수료 여부": "cpr",
     "CPR": "cpr",
     "성인지&아동감수성교육": "sensitivity_edu",
     "청소년토론지도사 자격": "youth_debate",
+    "청소년토론지도자": "youth_debate",
 }
+
+# 헤더에서 연도별 실적 컬럼을 인식하기 위한 패턴 (예: "2022 세미나 시수").
+_YEAR_RE = re.compile(r"(20\d{2})")
 
 
 def _norm(value):
@@ -162,7 +184,8 @@ class SheetsRepository(MemberRepository):
     def _row_to_member(self, headers, row):
         member = {
             "member_no": "", "name": "", "phone": "", "email": "", "region": "",
-            "fkf_grade": "", "private_grade": "", "specialties": "",
+            "org": "", "birth": "", "age": "", "gender": "", "note": "",
+            "fkf_grade": "", "private_grade": "", "pg": "", "specialties": "",
             "cpr": "", "sensitivity_edu": "", "youth_debate": "",
             "performance": _empty_performance(), "records": [],
         }
@@ -173,15 +196,19 @@ class SheetsRepository(MemberRepository):
             if field:
                 member[field] = _norm(value)
                 continue
-            # "2026_세미나" / "2026_프로보노" / "2026_프로젝트" 형태 실적 컬럼
-            for year in PERFORMANCE_YEARS:
-                if head_norm.startswith(year):
-                    if "세미나" in head_norm:
-                        member["performance"][year]["seminar_hours"] = _to_int(value)
-                    elif "프로보노" in head_norm:
-                        member["performance"][year]["probono_hours"] = _to_int(value)
-                    elif "프로젝트" in head_norm:
-                        member["performance"][year]["project_count"] = _to_int(value)
+            # 연도별 실적 컬럼 인식 (예: "2022 세미나 시수", "2026_프로보노")
+            ym = _YEAR_RE.search(head_norm)
+            if ym and ("세미나" in head_norm or "프로보노" in head_norm
+                       or "사회공헌" in head_norm or "프로젝트" in head_norm):
+                year = ym.group(1)
+                member["performance"].setdefault(
+                    year, {"seminar_hours": 0, "probono_hours": 0, "project_count": 0})
+                if "세미나" in head_norm:
+                    member["performance"][year]["seminar_hours"] = _to_int(value)
+                elif "프로보노" in head_norm or "사회공헌" in head_norm:
+                    member["performance"][year]["probono_hours"] = _to_int(value)
+                elif "프로젝트" in head_norm:
+                    member["performance"][year]["project_count"] = _to_int(value)
         return member
 
     def get_member(self, member_no):

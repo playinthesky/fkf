@@ -63,6 +63,7 @@
         <div class="no">회원번호 {{ m.member_no }}</div>
       </div>
       <div class="meta">
+        {% if m.org %}<div><div class="k">소속</div>{{ m.org }}</div>{% endif %}
         {% if m.region %}<div><div class="k">활동지역</div>{{ m.region }}</div>{% endif %}
         {% if m.phone %}<div><div class="k">연락처</div>{{ m.phone }}</div>{% endif %}
         {% if m.email %}<div><div class="k">이메일</div>{{ m.email }}</div>{% endif %}
@@ -82,6 +83,12 @@
         <div class="label">민간자격 등급 (급수 / 취득일)</div>
         <div class="value">{{ m.private_grade or '—' }}</div>
       </div>
+      {% if m.pg %}
+      <div class="item">
+        <div class="label">PG (등급 코드)</div>
+        <div class="value">{{ m.pg }}</div>
+      </div>
+      {% endif %}
       <div class="item">
         <div class="label">Specialties (전문분야)</div>
         <div class="value">{{ m.specialties or '—' }}</div>
