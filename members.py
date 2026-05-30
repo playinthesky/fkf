@@ -217,19 +217,31 @@ class SheetsRepository(MemberRepository):
             return None
         ws = self._worksheet()
         values = ws.get_all_values()
-        if not values:
+        header_idx, no_idx = _locate_header(values)
+        if header_idx is None:
             return None
-        headers = values[0]
-        try:
-            no_idx = next(
-                i for i, h in enumerate(headers) if ROSTER_HEADER_MAP.get(_norm(h)) == "member_no"
-            )
-        except StopIteration:
-            return None
-        for row in values[1:]:
+        headers = values[header_idx]
+        for row in values[header_idx + 1:]:
             if no_idx < len(row) and _norm(row[no_idx]) == member_no:
                 return self._row_to_member(headers, row)
         return None
+
+
+def _locate_header(values, scan_rows=12):
+    """헤더 행을 자동 탐지한다.
+
+    명단 탭에 제목 행이 위에 있을 수 있으므로 1행 고정이 아니라, 앞쪽 몇 행을
+    훑어 '회원번호'에 해당하는 헤더가 있는 행을 찾는다.
+
+    반환: ``(header_row_index, member_no_column_index)`` 또는 ``(None, None)``.
+    """
+    if not values:
+        return None, None
+    for i, row in enumerate(values[:scan_rows]):
+        for j, cell in enumerate(row):
+            if ROSTER_HEADER_MAP.get(_norm(cell)) == "member_no":
+                return i, j
+    return None, None
 
 
 def _to_int(value):

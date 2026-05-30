@@ -49,6 +49,21 @@ class SheetsRowParsingTest(unittest.TestCase):
         self.assertEqual(m["performance"]["2025"]["probono_hours"], 4)
         self.assertEqual(m["performance"]["2025"]["project_count"], 3)
 
+    def test_locate_header_skips_title_row(self):
+        from members import _locate_header
+        values = [
+            ["fKF 정회원 명단", "", ""],            # 제목 행
+            ["회원번호", "성명", "fKF등급"],          # 실제 헤더 행 (index 1)
+            ["fKF-25-0001", "윤혜영", "3급"],
+        ]
+        hdr_idx, no_idx = _locate_header(values)
+        self.assertEqual(hdr_idx, 1)
+        self.assertEqual(no_idx, 0)
+
+    def test_locate_header_none_when_missing(self):
+        from members import _locate_header
+        self.assertEqual(_locate_header([["a", "b"], ["c", "d"]]), (None, None))
+
     def test_to_int(self):
         self.assertEqual(_to_int("5"), 5)
         self.assertEqual(_to_int("3.0"), 3)
