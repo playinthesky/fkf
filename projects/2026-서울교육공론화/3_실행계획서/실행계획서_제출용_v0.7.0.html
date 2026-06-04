@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026년 서울교육공론화 사업 용역 실행계획서</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4EFE6; --ink:#14213D; --ink-soft:#3a4a6b;
+    --gold:#C68A00; --line:#d8cdb8; --card:#fbf8f1;
+    --green:#2f6b4f; --red:#9a3b2e; --teal:#2A9D8F;
+    --ax-blue:#1E3A5F; --ax-gold:#E9C46A;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:'IBM Plex Sans KR',sans-serif;line-height:1.75;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:64px 32px 100px}
+
+  .cover{padding:100px 0 80px;border-bottom:3px double var(--ink);margin-bottom:56px;text-align:center}
+  .kicker{font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:18px}
+  h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:3rem;line-height:1.2;margin-bottom:24px}
+  .sub-title{font-size:1.15rem;color:var(--ink-soft);margin-bottom:48px}
+  .cover-meta{display:inline-block;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px 32px;margin-top:24px;min-width:480px}
+  .cover-meta dt{display:inline-block;width:120px;font-weight:600;color:var(--ink);font-size:.95rem;padding:5px 0}
+  .cover-meta dd{display:inline;font-size:.95rem;color:var(--ink-soft)}
+  .cover-meta dl > div{margin:3px 0;border-bottom:1px dotted var(--line);padding-bottom:5px}
+  .cover-meta dl > div:last-child{border-bottom:none}
+  .submit-by{margin-top:48px;font-size:1.05rem;color:var(--ax-blue);font-weight:600}
+  .submit-by .org{font-size:1.3rem;font-family:'Gowun Batang',serif;display:block;margin-top:8px}
+
+  h2{font-family:'Gowun Batang',serif;font-size:1.85rem;font-weight:700;margin:72px 0 10px;padding-bottom:14px;border-bottom:2px solid var(--ink);display:flex;align-items:baseline;gap:14px}
+  h2 .num{font-size:1.05rem;color:var(--gold);font-family:'IBM Plex Sans KR';font-weight:700}
+  h3{font-family:'Gowun Batang',serif;font-size:1.3rem;font-weight:700;margin:40px 0 16px;color:var(--ax-blue);border-left:4px solid var(--gold);padding-left:14px}
+  h4{font-size:1.05rem;font-weight:600;margin:24px 0 12px;color:var(--ink)}
+  h5{font-size:.96rem;font-weight:600;margin:18px 0 8px;color:var(--ax-blue)}
+  .sub{color:var(--ink-soft);font-size:.95rem;margin:8px 0 20px}
+
+  p{margin:12px 0;font-size:.96rem}
+  ul,ol{padding-left:26px;font-size:.96rem}
+  li{margin:6px 0}
+
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.88rem;background:var(--card);border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+  th{background:var(--ax-blue);color:#fff;padding:10px 14px;text-align:left;font-weight:600}
+  td{padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  tr:nth-child(even) td{background:rgba(216,205,184,.18)}
+
+  .callout{background:#fff;border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:18px 22px;margin:24px 0;font-size:.94rem}
+  .callout b{color:var(--ink)}
+  .callout.teal{border-left-color:var(--teal);background:#f1faf8}
+  .callout.blue{border-left-color:var(--ax-blue);background:#f0f3f8}
+  .callout.gold{border-left-color:var(--gold);background:#fcf8ef}
+
+  /* 차별화 카드 */
+  .pillar{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--teal);border-radius:10px;padding:20px 24px;margin:18px 0}
+  .pillar .p-num{font-family:'Gowun Batang',serif;color:var(--gold);font-weight:700;font-size:.9rem;margin-bottom:4px}
+  .pillar .p-name{font-weight:700;font-size:1.15rem;color:var(--ax-blue);margin-bottom:10px}
+  .pillar .p-desc{font-size:.93rem;color:var(--ink-soft);margin-bottom:14px}
+  .pillar .p-detail{background:#fff;border-radius:6px;padding:12px 16px;margin:10px 0;font-size:.88rem}
+  .pillar .p-detail b{color:var(--ink);display:block;margin-bottom:4px;font-size:.83rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+
+  /* 다이어그램 — ASCII */
+  .ascii{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:14px 0;font-family:'IBM Plex Mono',monospace;font-size:.82rem;line-height:1.55;color:var(--ink);white-space:pre;overflow-x:auto}
+
+  /* 일정 Phase */
+  .phase{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin:14px 0}
+  .phase .ph-mark{font-family:'Gowun Batang',serif;font-weight:700;color:var(--gold);font-size:1.05rem;margin-bottom:6px}
+  .phase .ph-title{font-weight:600;font-size:1.05rem;margin-bottom:10px}
+  .phase ul{margin-top:6px}
+
+  /* 위험 매트릭스 */
+  .risk{padding:4px 10px;border-radius:14px;font-size:.7rem;font-weight:600;display:inline-block;color:#fff}
+  .risk-h{background:var(--red)}
+  .risk-m{background:var(--gold)}
+  .risk-l{background:var(--teal)}
+
+  .badge{display:inline-block;font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:20px;margin-right:6px;background:var(--ax-gold);color:var(--ink)}
+
+  footer{margin-top:96px;padding-top:22px;border-top:2px solid var(--ink);font-size:.85rem;color:var(--ink-soft);text-align:center}
+  footer .org-mark{font-family:'Gowun Batang',serif;font-size:1.1rem;color:var(--ax-blue);font-weight:700;margin-bottom:6px}
+
+  @media print{
+    body{background:#fff}
+    .wrap{padding:0;max-width:none}
+    h2{page-break-before:always}
+    h2:first-of-type{page-break-before:auto}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 표지 -->
+  <section class="cover">
+    <div class="kicker">2026 서울교육공론화 사업 용역</div>
+    <h1>실행계획서</h1>
+    <div class="sub-title">시민과 함께 만드는 서울교육의 내일</div>
+    <div class="cover-meta">
+      <dl>
+        <div><dt>사업명</dt><dd>2026년 서울교육공론화 사업 용역</dd></div>
+        <div><dt>발주처</dt><dd>서울특별시교육청 교육협력담당관</dd></div>
+        <div><dt>사업기간</dt><dd>계약일로부터 ~ 2026. 12. 31.</dd></div>
+        <div><dt>사업예산</dt><dd>금 109,816,000원 (부가가치세 포함)</dd></div>
+      </dl>
+    </div>
+    <div class="submit-by">
+      제출
+      <span class="org">코리아스픽스(주) · 글로벌리서치(주) 컨소시엄</span>
+    </div>
+  </section>
+
+  <!-- I. 사업 개요 -->
+  <h2><span class="num">I</span> 사업 개요</h2>
+
+  <h3>1.1 사업 목적</h3>
+  <p>본 사업은 다음 두 가지 목적을 달성하고자 합니다.</p>
+  <ul>
+    <li>교육정책의 수립·집행 과정에 이해관계자 및 시민이 참여하는 민주적 숙의 과정을 통한 <b>갈등의 사전 예방·해결</b></li>
+    <li>정책결정 과정에 다양한 교육 수요자의 참여를 유도하여 의사결정 과정의 <b>투명성과 민주성을 확보</b>하고, 정책 수용성을 제고</li>
+  </ul>
+
+  <h3>1.2 사업 추진 원칙</h3>
+  <table>
+    <tr><th>원칙</th><th>구현 방식</th></tr>
+    <tr><td>대표성</td><td>학생·학부모·교직원·일반시민 등 다양한 교육 수요자가 균형 있게 참여 — 인구통계 층화 추출, 지역 안배, 가족 비중 균형 룰 적용</td></tr>
+    <tr><td>공정성</td><td>의제선정·공론 모델 설계·숙의 진행 전 과정의 중립성·객관성 확보 — 외부 위원회 의결, 사전 운영규칙 명시</td></tr>
+    <tr><td>충분한 숙의</td><td>온·오프라인 다층 학습 기회 제공 — 자료집 + NotebookLM 온라인 학습 캠페인 + 오리엔테이션 + 전문가 브리핑</td></tr>
+    <tr><td>투명성</td><td>전 과정 기록·공개 — 모든 회의 녹취·회의록, 결과의 객관적 분석·공표, 소통광장 상시 게시</td></tr>
+    <tr><td>실효성</td><td>도출 결과를 2027년 서울교육정책에 반영 가능하도록 정책권고안·인포그래픽 작성, 교육감 전달 행사 협조</td></tr>
+  </table>
+
+  <h3>1.3 사업 범위 — RFP 4분야 준수</h3>
+  <ol>
+    <li>의제선정 및 공론 모델 설계 — 공론화의제선정협의체·공론화추진협의체 운영, 절차 설계</li>
+    <li>공론과정 운영 — 여론조사, 전문가 의견 수렴, 시민참여단 모집·구성·관리, 숙의 토론회</li>
+    <li>홍보 및 사전학습 관리 — 서울교육 소통광장 연계, 참여시민 학습·교육·홍보</li>
+    <li>공론화 결과문 및 보고서 작성 — 분석보고서, 정책제안문, 최종보고서, 백서</li>
+  </ol>
+
+  <!-- II. 차별화 -->
+  <h2><span class="num">II</span> 차별화된 접근</h2>
+  <p class="sub">본 사업에서 코리아스픽스가 적용하는 4가지 핵심 차별화 솔루션. 모두 우리가 수행한 다른 공론화 사업에서 검증된 방법론이거나, 본 사업에서 새롭게 도입하는 혁신 요소입니다.</p>
+
+  <!-- Pillar 1: STM -->
+  <div class="pillar">
+    <div class="p-num">CORE METHOD 01</div>
+    <div class="p-name">① 숙의형 데이터 분석 (STM, Structural Topic Modeling)</div>
+    <div class="p-desc">전통적 정성 분석에 구조적 토픽 모델링을 결합한 코리아스픽스 고유 분석 방법론입니다. 시민이 말한 것·쓴 것을 단순 빈도가 아닌 의미 단위의 토픽으로 추출하고, 토픽 간 관계와 변동을 정량·정성 통합으로 분석합니다.</div>
+
+    <div class="p-detail">
+      <b>분석 입력</b>
+      <ul>
+        <li>여론조사 주관식 응답 (의제별 1,500명 이상)</li>
+        <li>FGI 4개 그룹 녹취록 (학생·학부모·교사·일반시민)</li>
+        <li>전문가 인터뷰 녹취록</li>
+        <li>참여단 숙의 토론장 발언 전체 녹취</li>
+        <li>소통광장 시민의견·정책설문 응답</li>
+      </ul>
+    </div>
+
+    <div class="p-detail">
+      <b>분석 산출</b>
+      <ul>
+        <li><b>핵심 토픽 N개 자동 추출</b> — 토픽별 키워드·대표 발언</li>
+        <li><b>합의·이견 지점 매핑</b> — 만장 합의 / 다수 / 소수 의견 구분</li>
+        <li><b>의견 변동 추적</b> — 사전 → 학습 후 → 숙의 후 의식 변화</li>
+        <li><b>인구통계별 차이</b> — 연령·성별·계층별 토픽 분포</li>
+        <li><b>정성 인용 + 정량 근거</b> — 결과보고서·백서 본문에 직접 사용</li>
+      </ul>
+    </div>
+
+    <div class="p-detail">
+      <b>왜 STM인가</b>
+      <ul>
+        <li>빈도 기반 워드클라우드는 의제 본질을 놓침 — 의미 단위 토픽이 핵심</li>
+        <li>전통 정성 코딩은 분석가 주관에 좌우 — STM은 재현 가능한 객관 근거</li>
+        <li>1,500명 이상 표본을 사람이 손으로 분류 불가능 — 자동화 필수</li>
+      </ul>
+    </div>
+
+    <div class="p-detail">
+      <b>적용 실적</b>
+      <ul>
+        <li>충북교육공론화 (2023~2024) — 다년간 STM 분석 적용, 백서 본문에 반영</li>
+        <li>경기북부특별자치도 설치 공론화 — 시민 의견 STM 분석으로 정책 권고 도출</li>
+        <li>다수 공공 갈등·숙의 사업에 적용 (코리아스픽스 표준 분석법)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Pillar 2: AX -->
+  <div class="pillar">
+    <div class="p-num">OPERATING MODEL 02</div>
+    <div class="p-name">② AX (AI + Human) 협업 운영</div>
+    <div class="p-desc">의제 분석·자료 가공·기록·분석 전 과정에 AI 도구와 전문 컨설턴트를 결합 운영합니다. AI는 반복·대량 작업을, 사람은 판단·설계·중재를 담당하여 작업 정확성·속도·일관성을 동시에 확보합니다.</div>
+
+    <div class="p-detail">
+      <b>AI가 담당하는 일</b>
+      <ul>
+        <li>의제 후보 토픽 자동 추출 (시민 의견·연구 자료 일괄 분석)</li>
+        <li>전문가 인터뷰 녹취 → 자동 전사 → 핵심 발언 인용 추출</li>
+        <li>이해관계자 입장별 자료 자동 분류·요약 (자료집 입력)</li>
+        <li>회의 녹취 → 회의록 초안 자동 생성 (전 회의 적용)</li>
+        <li>시민의견 자동 분류·감정 분석·STM 분석</li>
+        <li>참여자 사전·사후 응답 변화 자동 비교</li>
+      </ul>
+    </div>
+
+    <div class="p-detail">
+      <b>사람만 담당하는 일</b>
+      <ul>
+        <li>의제 설계 — 의제 범위·세부의제 구조화·이해관계 매핑</li>
+        <li>숙의 절차 설계 — 단계별 진행 방식·세션 디자인</li>
+        <li>합의문 작성 — 다층 의견의 정책 권고 통합</li>
+        <li>갈등 중재 — 현장 퍼실리테이션·이해관계자 조정</li>
+        <li>발주처·위원회 협의·결재 — 모든 결정은 사람이</li>
+      </ul>
+    </div>
+
+    <div class="p-detail">
+      <b>AX 운영 효과</b>
+      <ul>
+        <li>회의록 작성 시간 70% 단축 (작년 대비)</li>
+        <li>자료 분석 일관성 향상 — 분석가별 편차 최소화</li>
+        <li>대량 시민 의견 누락 없이 처리 — 1,500명+ 응답을 정성 수준으로 분석</li>
+        <li>전 과정 기록 가능 — 발주처 신뢰성 확보</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Pillar 3: AI-bdl -->
+  <div class="pillar">
+    <div class="p-num">DELIBERATION TECH 03</div>
+    <div class="p-name">③ AI 퍼실리테이터 (AI-bdl / 특허 출원 중)</div>
+    <div class="p-desc">숙의 토론장에서 전문 퍼실리테이터를 실시간 보조하는 코리아스픽스 자체 개발 AI 솔루션입니다. 발언 자동 캡처·논점 추출·팩트체크·발언 균형 모니터링을 동시에 수행하여 퍼실리테이터가 토론 흐름과 갈등 관리에 집중할 수 있도록 합니다.</div>
+
+    <div class="p-detail">
+      <b>실시간 기능</b>
+      <ul>
+        <li><b>발언 캡처·전사</b> — 모든 발언자의 발언을 실시간 텍스트화</li>
+        <li><b>논점 추출</b> — 발언 흐름에서 핵심 쟁점 자동 정리, 퍼실에 표시</li>
+        <li><b>팩트체크</b> — 발언 내용 중 검증 가능한 사실 주장에 대해 자료집·전문가 인터뷰 근거 매칭</li>
+        <li><b>발언 균형 모니터링</b> — 참가자별 발언량 지니계수 계산, 발언 기회 불균형 시 퍼실에 알림</li>
+        <li><b>요약 카드</b> — 라운드 종료 시 자동 요약 생성, 다음 라운드 입력으로 활용</li>
+      </ul>
+    </div>
+
+    <div class="p-detail">
+      <b>퍼실리테이터와의 분담</b>
+      <div class="ascii">
+   [퍼실리테이터]                     [AI-bdl]
+        │                              │
+   토론 진행·중재  ◀───  논점·균형 알림  ◀── 발언 캡처·분석
+   참여자 격려                          │
+   감정·갈등 관리                       │
+   합의 유도          ───▶  요약 요청  ───▶ 라운드 요약·인용 추출
+        │                              │
+        ▼                              ▼
+   토론 흐름 통제                  실시간 기록·분석</div>
+    </div>
+
+    <div class="p-detail">
+      <b>왜 별도 기록자 운영을 하지 않는가</b>
+      <ul>
+        <li>기록자가 퍼실 옆에서 단순 받아쓰기를 하면 토론 흐름이 끊김 (작년 운영 결과 확인)</li>
+        <li>AI-bdl이 발언 캡처를 전담 → 사람 기록자는 갈등 관리·심층 인터뷰에 재배치</li>
+        <li>녹취 + AI 전사 + 사후 사람 검수 3단계로 정확성·맥락 모두 확보</li>
+      </ul>
+    </div>
+
+    <div class="p-detail">
+      <b>기대 효과 (DQI 영향)</b>
+      <ul>
+        <li>발언 균형 지니계수 ≤ 0.3 달성률 향상</li>
+        <li>근거 활용(팩트 인용률) ≥ 60% 달성</li>
+        <li>토론 시간 활용도 향상 — 같은 시간에 더 깊은 토론</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Pillar 4: NotebookLM -->
+  <div class="pillar">
+    <div class="p-num">CIVIC LEARNING 04</div>
+    <div class="p-name">④ NotebookLM Meetup — 시민 학습 보강 캠페인</div>
+    <div class="p-desc">자료집만으로는 부족한 의제 학습을 보강하기 위한 Google NotebookLM 기반 온라인 학습 캠페인입니다. 본 사업에서 처음 도입하는 혁신 요소로, 발주처·구글코리아와 공동 기획하여 시민 참여단의 의제 이해도를 한 단계 끌어올립니다.</div>
+
+    <div class="p-detail">
+      <b>NotebookLM이 무엇인가</b>
+      <p>Google이 개발한 AI 기반 학습·연구 도구. 사용자가 업로드한 자료(PDF·문서)를 기반으로만 답변하며, 자료 외 추론은 하지 않아 환각(hallucination) 위험을 차단합니다. 시민이 자료집을 능동적으로 학습하고 자신의 페이스로 질문할 수 있는 도구로 적합합니다.</p>
+    </div>
+
+    <div class="p-detail">
+      <b>운영 흐름</b>
+      <div class="ascii">
+   ┌─────────────────────────────────────────────────────┐
+   │ STEP 1. 사전 준비                                     │
+   │ • 의제 확정 직후 — 자료집·전문가 인터뷰·연구보고서를 │
+   │   NotebookLM Notebook에 업로드                         │
+   │ • 발주처·구글코리아와 공동 기획                       │
+   └─────────────────────────────────────────────────────┘
+                          ▼
+   ┌─────────────────────────────────────────────────────┐
+   │ STEP 2. 시민 참여단 학습 (OT 직후 ~ 본 토론 전)        │
+   │ • Notebook 접속 링크 발송                              │
+   │ • 시민이 자기 속도로 자료 학습                         │
+   │ • 궁금한 점을 NotebookLM에 질문                        │
+   │ • 자료에 근거한 답변 즉시 수신                         │
+   └─────────────────────────────────────────────────────┘
+                          ▼
+   ┌─────────────────────────────────────────────────────┐
+   │ STEP 3. 본 토론 입력                                  │
+   │ • 시민 질문 로그 → 자주 묻는 질문 분석                  │
+   │ • 전문가 패널에서 우선 다룰 쟁점으로 활용              │
+   │ • 토론 시작 전 모든 시민이 동일한 학습 수준 도달        │
+   └─────────────────────────────────────────────────────┘</div>
+    </div>
+
+    <div class="p-detail">
+      <b>혁신성</b>
+      <ul>
+        <li>전통 공론화의 사전 학습은 오프라인 OT 한 번 — 시민 부담·이해도 한계</li>
+        <li>NotebookLM은 24시간 시민 페이스 학습 — 직장인·학생·학부모 모두 접근 가능</li>
+        <li>질문 로그가 본 토론 입력 — 시민이 진짜 궁금한 것을 다룸</li>
+        <li>구글코리아 협조로 안정 인프라 — 별도 서버 부담 없음</li>
+      </ul>
+    </div>
+
+    <div class="p-detail">
+      <b>발주처 협의 사항</b>
+      <ul>
+        <li>도입 동의 및 공동 기획 회의</li>
+        <li>구글코리아 협조 요청 공문 발송 (코리아스픽스가 초안 작성)</li>
+        <li>"서울교육공론 NotebookLM Meetup" 브랜드 명칭 협의</li>
+        <li>운영 후 학습 로그 데이터 활용·보관 정책 협의</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout teal">
+    <p><b>공통 원칙</b>: 위 4가지는 코리아스픽스의 모든 숙의 컨설팅에 내장된 표준 솔루션입니다. 본 사업에서도 동일하게 적용되며, ④ NotebookLM Meetup만 본 사업에서 새롭게 도입하는 혁신 요소입니다.</p>
+  </div>
+
+  <!-- III. 4분야 이행 계획 -->
+  <h2><span class="num">III</span> 4분야 이행 계획</h2>
+
+  <!-- III-1 -->
+  <h3>III-1. 의제발굴 및 선정</h3>
+
+  <h4>가. 의제 발굴 — 온·오프라인 다중 채널</h4>
+  <table>
+    <tr><th>채널</th><th>대상</th><th>수집 방식</th><th>예상 응답</th></tr>
+    <tr><td>서울교육 소통광장 '시민제안'</td><td>전체 시민</td><td>온라인 게시·댓글</td><td>20~30건</td></tr>
+    <tr><td>서울교육 소통광장 '정책설문'</td><td>전체 시민</td><td>온라인 설문</td><td>200~500건</td></tr>
+    <tr><td>코리아스픽스 자체 폼</td><td>전체 시민</td><td>구글 폼·SNS 연계</td><td>50~100건</td></tr>
+    <tr><td>학교 네트워크·학부모회</td><td>학생·학부모·교직원</td><td>이메일·QR 배포</td><td>50~100건</td></tr>
+    <tr><td>FGI 4개 그룹</td><td>층화 표본</td><td>그룹 인터뷰</td><td>심층 의견</td></tr>
+  </table>
+
+  <h4>나. FGI 4개 그룹 운영</h4>
+  <table>
+    <tr><th>그룹</th><th>대상</th><th>인원</th><th>시간</th><th>주제</th></tr>
+    <tr><td>그룹 1</td><td>중·고등학생</td><td>6~8명</td><td>90분</td><td>학교 현장 관점의 교육 이슈</td></tr>
+    <tr><td>그룹 2</td><td>학부모</td><td>6~8명</td><td>90분</td><td>가정·학교 연계 이슈</td></tr>
+    <tr><td>그룹 3</td><td>교사·교직원</td><td>6~8명</td><td>90분</td><td>현장 실행 가능성</td></tr>
+    <tr><td>그룹 4</td><td>일반시민·전문가</td><td>6~8명</td><td>90분</td><td>사회적 맥락·정책 관점</td></tr>
+  </table>
+  <p>각 그룹: 진행자 1명 + 기록자 1명 + 코리아스픽스 의제분석팀 참관. 녹취 + 회의록 + 핵심 발언 인용 정리.</p>
+
+  <h4>다. 공론화의제선정협의체 운영 (1~2회, 10명)</h4>
+  <table>
+    <tr><th>회차</th><th>안건</th><th>산출물</th></tr>
+    <tr><td>1차 (1회 운영 시 단독 / 2회 운영 시 사전)</td><td>의제 후보 검토, 시민·전문가 의견 보고, 후보 압축 토론</td><td>의제 후보 보고서, 1차 압축 명단</td></tr>
+    <tr><td>2차 (선택)</td><td>최종 의제 선정 토론·투표</td><td>최종 의제 확정문</td></tr>
+  </table>
+
+  <h5>의사결정 모델</h5>
+  <ol>
+    <li><b>1단계 — 만장일치 추구</b>: 위원 토론을 통한 합의 시도</li>
+    <li><b>2단계 — 다수결</b>: 합의 불성립 시 위원 2/3 이상 찬성</li>
+    <li><b>3단계 — 위원장 결정</b>: 다수결도 부결 시 위원장이 최종 의제 결정 (위임)</li>
+  </ol>
+
+  <h5>위원 인선 협력</h5>
+  <ul>
+    <li>학계·시민·교사·학부모·전문가 균형 (각 영역 2명 내외)</li>
+    <li>의제 분야별 전문성 확보 (정책·교육·갈등관리)</li>
+    <li>발주처와 협의하여 위원 추천·위촉</li>
+  </ul>
+
+  <!-- III-2 -->
+  <h3>III-2. 공론과정 운영</h3>
+
+  <h4>가. 공론화추진협의체 구성·운영 (3~4회, 5명)</h4>
+  <table>
+    <tr><th>회차</th><th>주요 안건</th><th>산출물</th></tr>
+    <tr><td>1차</td><td>위원장·부위원장 호선, 의제명·세부의제 확정, 운영 모델 합의, 일정·예산 공유</td><td>회의록, 운영 설계서</td></tr>
+    <tr><td>2차</td><td>여론조사 문항 검토·승인, 자료집 구성·균형 검토, 사전조사 결과 보고</td><td>설문 최종안, 자료집 검수 의견</td></tr>
+    <tr><td>3차</td><td>숙의토론 운영 방안 점검, 참여단 구성 보고, 리허설 결과</td><td>숙의 진행 매뉴얼 승인</td></tr>
+    <tr><td>4차</td><td>숙의 결과 종합 보고, 정책권고안 검토, 백서 초안 검수</td><td>최종 결과 의결문, 백서 검수 의견</td></tr>
+  </table>
+  <p>모든 회의: 녹취 + 회의록 작성 앱(Otter·Daglo 등) 활용. 회의 내용은 다음 회차 회의 시작 시 실행 반영 보고.</p>
+
+  <h4>나. 시민참여단 모집 및 운영 (100명 내외)</h4>
+
+  <h5>모집 채널·기간</h5>
+  <ul>
+    <li><b>모집 기간</b>: 4주 (의제 확정 후)</li>
+    <li><b>다중 채널</b>: 소통광장 · 학교 네트워크 · 학부모회 · 시민단체 · SNS · 코리아스픽스 자체 채널</li>
+    <li><b>예상 신청자</b>: 목표 인원의 3배 (300명) — 층화 추출 여유 확보</li>
+  </ul>
+
+  <h5>층화 추출 기준 (대표성 확보)</h5>
+  <table>
+    <tr><th>차원</th><th>층화 구분</th><th>비율 기준</th></tr>
+    <tr><td>구성원 유형</td><td>학생 / 학부모 / 교직원 / 일반시민</td><td>각 25% 내외</td></tr>
+    <tr><td>지역</td><td>서울 25개 자치구</td><td>지역 안배</td></tr>
+    <tr><td>연령</td><td>10대·20대·30대·40대·50대·60대 이상</td><td>연령 균형</td></tr>
+    <tr><td>성별</td><td>남성·여성·기타</td><td>1:1 균형</td></tr>
+    <tr><td>가족 비중 룰</td><td>동일 가구 신청자</td><td><b>≤ 전체의 5%</b> (작년 가족 비중 과다 문제 보완)</td></tr>
+  </table>
+
+  <h5>참여자 운영</h5>
+  <ul>
+    <li>모집 직후 일정 안내 — 사전조사 → 자료집 → OT → NotebookLM 학습 → 본 토론 → 결과 보고</li>
+    <li>중도 이탈 대비 예비 참여단 (목표의 20%) 사전 확보</li>
+    <li>참여 수당 — 발주처 협의 기준에 따라 지급</li>
+    <li>참여 종료 후 1:1 결과 보고 메시지 + 교육감 명의 감사 서한 발송</li>
+  </ul>
+
+  <h4>다. 여론조사 (글로벌리서치 주관)</h4>
+  <table>
+    <tr><th>구분</th><th>내용</th></tr>
+    <tr><td>표본</td><td>의제별 1,500명 이상 (RFP 의무)</td></tr>
+    <tr><td>모집단</td><td>서울 거주 만 19세 이상 시민 + 학생·학부모·교직원 별도 표본</td></tr>
+    <tr><td>추출 방식</td><td>인구통계 비례 다단계 층화 추출</td></tr>
+    <tr><td>신뢰 수준</td><td>95%, 오차범위 ±2.5%p</td></tr>
+    <tr><td>조사 방식</td><td>온라인 + 전화 혼합 (CATI / Web-CAPI)</td></tr>
+    <tr><td>설문 구성</td><td>의제 인지도·태도·우선순위·정책 선호도·주관식 의견</td></tr>
+    <tr><td>변동 측정</td><td>사전·사후 동일 시민 패널에 재조사 (참여단 한정)</td></tr>
+  </table>
+
+  <h4>라. 숙의 토론회 운영 (1일 1회, 100명 내외)</h4>
+
+  <h5>당일 운영 시나리오 (예시)</h5>
+  <table>
+    <tr><th>시간</th><th>활동</th><th>비고</th></tr>
+    <tr><td>09:00 ~ 10:00</td><td>등록 · 좌석 배치 · 사전 조사 응답</td><td>참가자 안내 · 자료집 배포</td></tr>
+    <tr><td>10:00 ~ 10:30</td><td>개회식 · 진행 안내 · 그라운드 룰</td><td>퍼실리테이터 소개</td></tr>
+    <tr><td>10:30 ~ 12:00</td><td>1라운드 — 소그룹 토론 (쟁점 파악)</td><td>명목집단기법 · 테이블별 발언</td></tr>
+    <tr><td>12:00 ~ 13:00</td><td>점심 · 휴식</td><td>의제 관련 비공식 대화 권장</td></tr>
+    <tr><td>13:00 ~ 14:30</td><td>2라운드 — 전문가 패널 (심화 학습)</td><td>NotebookLM 사전 질문 기반</td></tr>
+    <tr><td>14:30 ~ 16:00</td><td>3라운드 — 교차 토론 (조 재편성)</td><td>관점 교환 · 의견 정련</td></tr>
+    <tr><td>16:00 ~ 17:30</td><td>4라운드 — 전체 토론 (합의 도출)</td><td>투표 · 합의문 초안</td></tr>
+    <tr><td>17:30 ~ 18:00</td><td>사후 조사 · 감사 인사 · 폐회</td><td>당일 결과 즉시 분석 시작</td></tr>
+  </table>
+
+  <h5>테이블 운영 (장소 환경 대응)</h5>
+  <table>
+    <tr><th>장소 유형</th><th>테이블 인원</th><th>테이블 수</th><th>비고</th></tr>
+    <tr><td>표준 토론장 (충분한 공간)</td><td>10명/테이블</td><td>10개</td><td>1퍼실 / 테이블</td></tr>
+    <tr><td>교육청 컨퍼런스룸 등 좌석 제약</td><td>8명/테이블</td><td>13개</td><td><b>테이블 수 증설로 토론 공간 확보</b></td></tr>
+  </table>
+
+  <h5>전문 인력 배치</h5>
+  <ul>
+    <li><b>리딩 퍼실리테이터</b>: 1명 (이병덕 대표이사 직접) — 전체 진행·합의 유도</li>
+    <li><b>테이블 퍼실리테이터</b>: 테이블 수만큼 — 학부모 퍼실 + 전문 퍼실 혼합</li>
+    <li><b>전문가 패널</b>: 의제 분야별 3~5명</li>
+    <li><b>FT 팀장</b>: 1명 — 갈등 관리·전체 흐름 통제</li>
+    <li><b>운영 스탭</b>: 10명 내외 — 등록·동선·기술·기록·안내</li>
+    <li><b>AI-bdl 운영</b>: 1명 — 시스템 모니터링·실시간 요약 점검</li>
+  </ul>
+
+  <h5>장비·환경</h5>
+  <ul>
+    <li>녹화 카메라 (전체 + 테이블별)</li>
+    <li>마이크 (라운드형 · 무선 · 테이블별)</li>
+    <li>음향·조명·전기 사전 점검</li>
+    <li>등록대 · QR 출석 · 명패 · 안내 사인</li>
+    <li>의제별 자료집 · 펜 · 노트 · 음료 · 간식</li>
+    <li>긴급 의료 키트 · 안전 안내문</li>
+  </ul>
+
+  <!-- III-3 -->
+  <h3>III-3. 홍보 및 사전학습 관리</h3>
+
+  <h4>가. 홍보 4단계 캠페인</h4>
+  <table>
+    <tr><th>단계</th><th>시점</th><th>목적</th><th>주요 콘텐츠</th><th>채널</th></tr>
+    <tr><td>1단계 — 소개</td><td>의제 선정 직전까지</td><td>서울교육공론화 사업 자체 소개 + 시민 참여 의향 환기</td><td>인포그래픽 1편 · 쇼츠 2편 · 소개 영상 1편</td><td>소통광장 · 인스타 · 유튜브 · 보도자료</td></tr>
+    <tr><td>2단계 — 의제 선정 + 의견수렴</td><td>의제 확정 직후 ~ 숙의 시작 전</td><td>의제 안내 + 일반시민 의견 수렴 + 컨택포인트 노출</td><td>카드뉴스 4편 · 인터렉티브 설문 1건 · 쇼츠 2편</td><td>소통광장 · 인스타 · 페이스북 · 학교 네트워크</td></tr>
+    <tr><td>3단계 — 과정 공유</td><td>숙의 진행 중</td><td>공론화 과정 투명 공유 + 관심 유지</td><td>쇼츠 3편 · 진행 리포트 2편 · 사진 화보</td><td>소통광장 · 인스타 · 보도자료</td></tr>
+    <tr><td>4단계 — 결과 발표</td><td>결과 도출 후</td><td>결과 발표 + 정책 반영 안내</td><td>결과 인포그래픽 1편 · 백서 요약본 · 보도자료 1편 · 영상 1편</td><td>전체 채널 · 언론 배포</td></tr>
+  </table>
+
+  <h4>나. 홍보 매체 운영</h4>
+
+  <h5>서울교육 소통광장 공론화 메뉴 적극 활용</h5>
+  <ul>
+    <li><b>의제 소개 트랙</b> — 의제 후보·선정 과정·최종 의제 게시</li>
+    <li><b>공론화 추진 트랙</b> — 추진 경과·사전교육 자료·과정·결과 상시 게시</li>
+    <li><b>시민 피드백 수렴</b> — 댓글·정책설문·게시판 통해 상시 의견 수렴 → STM 분석 입력으로 활용</li>
+    <li>운영 권한은 발주처와 협의하여 확보</li>
+  </ul>
+
+  <h5>시민 참여 컨택포인트 (대시민 공론 유도)</h5>
+  <ul>
+    <li>의제 선정 단계부터 모든 홍보 콘텐츠에 컨택포인트 동반 노출</li>
+    <li>컨택포인트 = 시민 의견 수렴 채널·문의 채널 (소통광장 + 자체 폼)</li>
+    <li>참여 의향 등록자에게 모집 공고 우선 안내 — 모집 효율 향상</li>
+  </ul>
+
+  <h5>기타 매체</h5>
+  <ul>
+    <li>소셜미디어 — 인스타그램·페이스북·유튜브·X(Twitter)</li>
+    <li>언론사 — 단계별 보도자료 직접 배포</li>
+    <li>서울시교육청 자체 매체 — enews · 블로그 · 공식 SNS</li>
+  </ul>
+
+  <h4>다. 시민참여단 학습 지원</h4>
+
+  <h5>자료집</h5>
+  <ul>
+    <li>이해관계자별 입장 균형 자료 — 찬·반·중립 입장 모두 동일 비중</li>
+    <li>분량 — 본문 50쪽 내외 + 부록 (요약 8쪽 별도)</li>
+    <li>검수 — 추진협의체 2차 회의 승인 후 인쇄</li>
+    <li>배포 — 디지털 (PDF) + 인쇄본 (참여단 100부 + 예비)</li>
+  </ul>
+
+  <h5>오리엔테이션</h5>
+  <ul>
+    <li>형식 — Zoom 또는 대면 (참여단 의견 수렴 후 결정)</li>
+    <li>분량 — 90분</li>
+    <li>구성 — 공론화 의미 · 일정 안내 · 자료집 안내 · NotebookLM 사용법 · Q&A</li>
+  </ul>
+
+  <h5>NotebookLM 학습 캠페인 (§II-④ 참조)</h5>
+  <ul>
+    <li>OT 직후 ~ 본 토론 전 (약 2~3주)</li>
+    <li>자료집 + 전문가 인터뷰 녹취 + 연구보고서 업로드</li>
+    <li>참여단은 자기 페이스로 학습 + 질문</li>
+    <li>질문 로그를 본 토론 전문가 패널 입력으로 활용</li>
+  </ul>
+
+  <!-- III-4 -->
+  <h3>III-4. 결과문 및 보고서 작성</h3>
+
+  <h4>가. 결과 해석 사전 규칙</h4>
+  <p>해석의 객관성·재현성을 확보하기 위해, 결과 해석 규칙을 사전에 정하고 발주처·추진협의체에 보고합니다.</p>
+  <table>
+    <tr><th>합의 수준</th><th>정의</th><th>표시</th></tr>
+    <tr><td>만장 합의</td><td>참여자 95% 이상 동일 응답</td><td>★ 강한 권고</td></tr>
+    <tr><td>다수 합의</td><td>참여자 70~95% 동일 응답</td><td>● 권고</td></tr>
+    <tr><td>경향성</td><td>참여자 50~70% 동일 응답</td><td>◐ 참고</td></tr>
+    <tr><td>양분</td><td>찬·반 각 30~50%</td><td>◯ 추가 논의 권고</td></tr>
+    <tr><td>소수 의견</td><td>참여자 10% 이상 소수 의견</td><td>※ 부기 (백서·정책권고안에 명시)</td></tr>
+  </table>
+
+  <h4>나. 산출 결과물</h4>
+  <ul>
+    <li><b>분석보고서</b> — 여론조사 + 숙의 결과 통합 분석 (STM 적용)</li>
+    <li><b>정책권고안</b> — 합의 수준별 정책 권고 + 이행 방안 + 우선순위</li>
+    <li><b>결과 공표문</b> — 대시민 발표용 요약</li>
+    <li><b>인포그래픽</b> — 결과 시각화 (참여자 분포 · 합의 사항 · 정책 권고)</li>
+    <li><b>백서</b> — 전 과정 종합 (글로벌리서치 가독성 우선 디자인)</li>
+    <li><b>영상</b> — 단계별 숙의공론 과정 영상 (편집본 + 원본)</li>
+  </ul>
+
+  <h4>다. 결과보고회 운영</h4>
+  <ul>
+    <li><b>참가</b> — 코리아스픽스 PM 및 핵심 인력 직접 참석</li>
+    <li><b>발표</b> — 결과 보고 (PM 또는 추진협 위원장)</li>
+    <li><b>촬영</b> — 발주처 협의 후 촬영 협조</li>
+    <li><b>대시민 홍보 협조</b> — 영상 편집 후 PR 4단계 캠페인 자료로 활용</li>
+  </ul>
+
+  <h4>라. 참여 시민 후속 관리</h4>
+  <ul>
+    <li>1:1 결과 보고 메시지 (메일) — 본인이 참여한 토론 결과 + 본인 의견 반영 여부</li>
+    <li>교육감 명의 감사 서한 — 참여 시민에 발송</li>
+    <li>후속 정책 반영 알림 — 2027년 정책 반영 시 별도 안내</li>
+  </ul>
+
+  <!-- IV. 공론화 모델 -->
+  <h2><span class="num">IV</span> 공론화 모델 — 5단계 워크플로우</h2>
+  <p class="sub">코리아스픽스 표준 숙의 컨설팅 프로세스를 본 사업에 적용합니다. 각 단계는 명확한 산출물·체크리스트로 관리됩니다.</p>
+
+  <div class="ascii">
+   [1. 준비]──▶[2. 학습]──▶[3. 숙의]──▶[4. 합의]──▶[5. 환류]
+    2~4주       2~3주       1일         즉시        지속</div>
+
+  <table>
+    <tr><th>단계</th><th>핵심 활동</th><th>주요 산출물</th><th>품질 기준</th></tr>
+    <tr><td>1. 준비<br>(8~12주)</td><td>의제 확정 · 위원회 구성 · 참여자 모집 · 자료 준비 · 시스템 셋업</td><td>의제서 · 위촉장 · 참여자 명단 · 학습자료 패키지</td><td>참여자 다양성 검증 · 안전·보험 점검 완료</td></tr>
+    <tr><td>2. 학습<br>(2~3주)</td><td>자료 배포 · 오리엔테이션 · NotebookLM 학습 캠페인 · 전문가 브리핑 · Q&A</td><td>배포 확인서 · OT 서명부 · 학습 로그 · 브리핑 영상</td><td>참여자 95% 이상 학습 완료 확인</td></tr>
+    <tr><td>3. 숙의<br>(1일)</td><td>4라운드 토론 (소그룹 → 전문가 패널 → 교차 토론 → 전체 토론) · AI-bdl 가동</td><td>회의록 · 발언 분석 · DQI 1차 측정</td><td>참여율 ≥ 90% · 발언 균형 지니계수 ≤ 0.3</td></tr>
+    <tr><td>4. 합의<br>(즉시)</td><td>합의안 초안 · 투표 · 최종안 확정 · 합의문 서명</td><td>합의문 · 투표 결과 · 소수의견 부기</td><td>합의 수준 ≥ 70% · 소수의견 부기 완료</td></tr>
+    <tr><td>5. 환류<br>(지속)</td><td>결과 공개 · 정책 권고 전달 · 이행 모니터링 · 평가 · 개선 반영</td><td>결과보고서 · 정책제안문 · 백서 · 평가 리포트</td><td>발주처 검수 통과 · 대시민 공표 완료</td></tr>
+  </table>
+
+  <!-- V. 추진 일정 -->
+  <h2><span class="num">V</span> 세부 추진 일정</h2>
+  <p class="sub">RFP 명시 3단계(의제발굴·공론모델·결과공표)에 사전 준비(Phase 0)를 더한 4단계 운영. 세부 시점은 발주처와 협의 후 확정합니다.</p>
+
+  <div class="phase">
+    <div class="ph-mark">Phase 0 · 사전 준비 (킥오프 ~ 의제 의견수렴 시작 전)</div>
+    <table>
+      <tr><th>활동</th><th>산출물</th><th>관여자</th><th>체크 항목</th></tr>
+      <tr><td>사내 착수 회의</td><td>킥오프 자료</td><td>코리아스픽스 + 글로벌리서치</td><td>역할 분담 확정</td></tr>
+      <tr><td>과업 수행계획서 작성·제출</td><td>수행계획서</td><td>양사 공동</td><td>계약 후 15일 이내 ✅</td></tr>
+      <tr><td>예산서 첨부 선금 신청</td><td>선금 신청서</td><td>양사 공동</td><td>발주처 양식 준수</td></tr>
+      <tr><td>행사 보험 가입</td><td>보험증권 원본</td><td>코리아스픽스</td><td>피보험인=서울시교육청 ✅</td></tr>
+      <tr><td>AI-bdl 운영 환경 셋업</td><td>시스템 점검 보고</td><td>코리아스픽스 기술팀</td><td>장비 테스트</td></tr>
+      <tr><td>NotebookLM 환경 준비</td><td>구글코리아 협조 공문</td><td>코리아스픽스 PM</td><td>발주처 동의 + 구글 협조 확보</td></tr>
+      <tr><td>소통광장 공론화 메뉴 권한</td><td>운영 권한</td><td>코리아스픽스 PM</td><td>발주처 협의</td></tr>
+      <tr><td>홍보 1단계 콘텐츠 기획</td><td>콘텐츠 기획서</td><td>코리아스픽스 홍보팀</td><td>발주처 검수 일정 확보</td></tr>
+    </table>
+  </div>
+
+  <div class="phase">
+    <div class="ph-mark">Phase 1 · 의제발굴·선정 (RFP: 6월~7월)</div>
+    <table>
+      <tr><th>활동</th><th>산출물</th><th>관여자</th><th>체크 항목</th></tr>
+      <tr><td>홍보 PR 1단계 가동</td><td>인포그래픽·쇼츠·소개 영상</td><td>코리아스픽스 홍보팀</td><td>채널별 배포 완료</td></tr>
+      <tr><td>온·오프라인 의제 의견수렴</td><td>의견 데이터</td><td>코리아스픽스 + 발주처</td><td>소통광장 + 자체 폼 + 학교 네트워크</td></tr>
+      <tr><td>FGI 4개 그룹 운영</td><td>녹취록·핵심 인용·STM 분석</td><td>코리아스픽스 의제분석팀</td><td>학생·학부모·교사·일반시민 모두 진행</td></tr>
+      <tr><td>부서 의견 조회</td><td>부서 적합 의견 종합</td><td>발주처 주관 + 코리아스픽스 지원</td><td>의제 후보 정련</td></tr>
+      <tr><td>공론화의제선정협의체 운영</td><td>최종 의제 확정문</td><td>위원 10명 + 발주처 + 코리아스픽스</td><td>1~2회 의결 완료</td></tr>
+    </table>
+  </div>
+
+  <div class="phase">
+    <div class="ph-mark">Phase 2 · 공론화 모델 설계 + 숙의과정 (RFP: 8월~10월)</div>
+    <table>
+      <tr><th>활동</th><th>산출물</th><th>관여자</th><th>체크 항목</th></tr>
+      <tr><td>공론화추진협의체 위원 위촉·운영</td><td>회의록 × 3~4회</td><td>위원 5명 + 발주처 + 코리아스픽스</td><td>매 회의 녹취·앱 활용 ✅</td></tr>
+      <tr><td>전문가 인터뷰</td><td>인터뷰 녹취·인용 정리</td><td>의제 분야 전문가 + 코리아스픽스</td><td>3~5명 진행</td></tr>
+      <tr><td>여론조사 설계·실시</td><td>설문·통계 데이터</td><td>글로벌리서치 주관</td><td>1,500명+ 표본 ✅</td></tr>
+      <tr><td>시민참여단 모집·층화 추출</td><td>참여자 명단 (100명+예비)</td><td>코리아스픽스 + 글로벌리서치</td><td>가족 비중 ≤ 5% ✅</td></tr>
+      <tr><td>숙의자료집 제작</td><td>자료집 (본문+요약)</td><td>코리아스픽스 의제분석팀</td><td>이해관계자 균형 ✅</td></tr>
+      <tr><td>참여단 오리엔테이션</td><td>OT 서명부·녹화본</td><td>코리아스픽스 + 발주처</td><td>참여단 95%+ 참석</td></tr>
+      <tr><td>NotebookLM 학습 캠페인</td><td>학습 로그·질문 정리</td><td>코리아스픽스 + 구글코리아</td><td>2~3주 운영</td></tr>
+      <tr><td>홍보 PR 2단계·3단계 가동</td><td>카드뉴스·쇼츠·진행 리포트</td><td>코리아스픽스 홍보팀</td><td>컨택포인트 동반 노출 ✅</td></tr>
+      <tr><td>공론장 조성·기술 리허설</td><td>리허설 결과 보고</td><td>코리아스픽스 기술팀 + 운영팀</td><td>장비·동선·안전 점검 완료</td></tr>
+      <tr><td>드레스 리허설</td><td>최종 점검 보고</td><td>퍼실리테이터 + 발표자</td><td>전체 시나리오 점검</td></tr>
+      <tr><td><b>오프라인 숙의 토론회 (1일, 100명)</b></td><td>회의록·녹화·DQI 측정·합의문</td><td>참여단 100명 + 퍼실 + 운영 스탭 + AI-bdl</td><td>SAFETY CODE 가동 ✅</td></tr>
+    </table>
+  </div>
+
+  <div class="phase">
+    <div class="ph-mark">Phase 3 · 결과 공표 (RFP: 11월~12월)</div>
+    <table>
+      <tr><th>활동</th><th>산출물</th><th>관여자</th><th>체크 항목</th></tr>
+      <tr><td>참여 시민 1:1 결과 보고 + 감사 서한</td><td>발송 기록</td><td>코리아스픽스 운영팀</td><td>전원 발송 확인</td></tr>
+      <tr><td>교육감 명의 감사 메시지</td><td>메시지</td><td>발주처 + 코리아스픽스</td><td>발주처 협의 후 발송</td></tr>
+      <tr><td>분석보고서 작성 (STM)</td><td>분석보고서</td><td>코리아스픽스 + 글로벌리서치</td><td>양사 교차 검토</td></tr>
+      <tr><td>정책권고안·요약본·인포그래픽</td><td>정책권고안·인포그래픽</td><td>코리아스픽스</td><td>12월 초 제출 ✅</td></tr>
+      <tr><td>공론화 백서 제작</td><td>책자 50부 + hwp/pdf</td><td>글로벌리서치 주관</td><td>가독성 우선 ✅</td></tr>
+      <tr><td>단계별 영상 편집</td><td>영상파일</td><td>코리아스픽스 + 외부 영상 협력사</td><td>편집·자막 완료</td></tr>
+      <tr><td>공론화추진협의체 4차 회의</td><td>최종 의결문</td><td>위원 5명 + 발주처</td><td>백서 검수 통과</td></tr>
+      <tr><td>결과보고회 참가·촬영</td><td>발표·영상</td><td>코리아스픽스 PM + 발주처</td><td>발주처 협의 후 진행</td></tr>
+      <tr><td>홍보 PR 4단계 가동</td><td>인포그래픽·보도자료·영상</td><td>코리아스픽스 홍보팀</td><td>전체 채널 배포</td></tr>
+      <tr><td>전체 산출물 납품·정산</td><td>최종 납품 확인서</td><td>양사 공동</td><td>12/31 이전 완료 ✅</td></tr>
+    </table>
+  </div>
+
+  <!-- VI. 추진 체계 -->
+  <h2><span class="num">VI</span> 추진 체계</h2>
+
+  <h3>6.1 컨소시엄 구성</h3>
+  <table>
+    <tr><th>구분</th><th>회사</th><th>주요 역할</th></tr>
+    <tr><td>대표사 (주관)</td><td>코리아스픽스(주)</td><td>사업 총괄, 숙의 설계·운영, 의제 분석, 홍보, 결과문 작성, AX 운영</td></tr>
+    <tr><td>참여사</td><td>글로벌리서치(주)</td><td>여론조사 설계·실시·분석, 통계 처리, 백서 제작 총괄</td></tr>
+  </table>
+
+  <h3>6.2 핵심 투입 인력</h3>
+
+  <h4>코리아스픽스(주)</h4>
+  <table>
+    <tr><th>성명</th><th>직위</th><th>참여분야</th><th>참여율</th><th>주요 역할</th></tr>
+    <tr><td>이병덕</td><td>대표이사</td><td>총괄책임 (PM)</td><td>50%</td><td>사업 총괄, 숙의 설계, 발주처 대응, 리딩 퍼실리테이터</td></tr>
+    <tr><td>이소연</td><td>차장</td><td>숙의컨설팅</td><td>50%</td><td>숙의 프로그램 설계, 의제 분석, 자료집 작성</td></tr>
+    <tr><td>정지혜</td><td>차장</td><td>숙의컨설팅</td><td>50%</td><td>숙의 과정 운영, 결과문 작성</td></tr>
+    <tr><td>송유훈</td><td>부사장</td><td>의제분석</td><td>30%</td><td>의제 분석 총괄, FGI 기획·운영</td></tr>
+    <tr><td>김성희</td><td>센터장</td><td>의제분석</td><td>30%</td><td>미디어·언론 분석, 의제 프레이밍</td></tr>
+    <tr><td>최대성</td><td>본부장</td><td>기술관리</td><td>50%</td><td>현장 기술관리, IT 총괄, AI-bdl 운영</td></tr>
+    <tr><td>이소영</td><td>대리</td><td>운영지원</td><td>30%</td><td>행사 운영 지원, 참여단 관리</td></tr>
+    <tr><td>김재은</td><td>사원</td><td>운영지원</td><td>30%</td><td>행사 운영 지원, 모집·안내</td></tr>
+  </table>
+
+  <h4>글로벌리서치(주)</h4>
+  <table>
+    <tr><th>성명</th><th>직위</th><th>참여분야</th><th>참여율</th><th>주요 역할</th></tr>
+    <tr><td>윤명환</td><td>부사장</td><td>총괄관리</td><td>10%</td><td>참여사 총괄·발주처 협력</td></tr>
+    <tr><td>이동열</td><td>수석부장</td><td>연구책임</td><td>20%</td><td>여론조사 연구 총책임, 설계·분석, 백서 총괄</td></tr>
+    <tr><td>최수현</td><td>차장</td><td>연구담당</td><td>-</td><td>조사 실무, 통계 분석</td></tr>
+    <tr><td>안효정</td><td>과장</td><td>조사담당</td><td>-</td><td>조사 실사 운영</td></tr>
+  </table>
+
+  <h3>6.3 보고 체계</h3>
+
+  <h4>전담 카운터파트너 지정</h4>
+  <ul>
+    <li><b>코리아스픽스 PM (이병덕 대표이사) — 발주처 전담 카운터파트너</b></li>
+    <li>발주처 담당자(서울특별시교육청) 변경에 신속히 대응할 수 있는 PM·부PM 이중 책임 체계</li>
+    <li>주요 의사결정·결재는 PM이 직접 발주처 담당자와 소통</li>
+  </ul>
+
+  <h4>보고 주기·형식</h4>
+  <table>
+    <tr><th>주기</th><th>보고</th><th>방식</th></tr>
+    <tr><td>주 1회</td><td>진행 현황 보고</td><td>메일 또는 직접 보고 (PM → 발주처 담당자)</td></tr>
+    <tr><td>월말</td><td>추진현황 보고서 (정기)</td><td>익월 5일까지 정기 제출</td></tr>
+    <tr><td>수시</td><td>특이사항 보고</td><td>발생 즉시 메일·전화</td></tr>
+    <tr><td>수시</td><td>추진단 회의 참석</td><td>발주기관 요청 시 PM 직접 참석 + 회의록 작성·반영</td></tr>
+  </table>
+
+  <h4>컨소시엄 내부 조율</h4>
+  <ul>
+    <li>코리아스픽스 ↔ 글로벌리서치 <b>주간 진행 공유 회의</b></li>
+    <li>여론조사 문항·결과는 <b>양사 사전 검토·합의 후 확정</b></li>
+    <li>모든 성과품은 제출 전 <b>양사 교차 검토</b></li>
+    <li>예산서·선금 신청·과업 수행계획서 등 <b>주요 서류는 양사 공동 작성·서명</b></li>
+  </ul>
+
+  <!-- VII. 안전 대책 -->
+  <h2><span class="num">VII</span> 안전 대책</h2>
+  <p class="sub">시민 참여 행사의 안전·질서를 위한 전 영역 안전관리 체계 구축. 본 사업에서는 RFP 의무사항을 모두 이행하고, 작년 미흡 사항을 적극 보완합니다.</p>
+
+  <h3>7.1 위험 매트릭스</h3>
+  <table>
+    <tr><th>위험요소</th><th>발생 가능성</th><th>영향</th><th>대응</th><th>담당</th></tr>
+    <tr><td>화재</td><td><span class="risk risk-l">낮음</span></td><td><span class="risk risk-h">매우 큼</span></td><td>장소 사전 점검·대피로 확인, 소화기 위치 안내, 화재보험</td><td>운영팀장</td></tr>
+    <tr><td>정전</td><td><span class="risk risk-l">낮음</span></td><td><span class="risk risk-m">중간</span></td><td>비상 발전기 확보, 자료 백업, 수동 진행 매뉴얼</td><td>기술팀장 (최대성)</td></tr>
+    <tr><td>참여자 응급 상황</td><td><span class="risk risk-m">보통</span></td><td><span class="risk risk-h">매우 큼</span></td><td>지정 병원 사전 협약, 응급 키트 비치, AED, 응급요원 배치</td><td>운영팀장</td></tr>
+    <tr><td>감염병 (코로나·독감)</td><td><span class="risk risk-m">보통</span></td><td><span class="risk risk-m">중간</span></td><td>발열 검사·환기·마스크·손소독 비치, 의심 증상자 격리실</td><td>운영팀장</td></tr>
+    <tr><td>참여자 간 갈등 격화</td><td><span class="risk risk-m">보통</span></td><td><span class="risk risk-m">중간</span></td><td>훈련된 퍼실리테이터 + FT 팀장 중재, 휴식 규칙, AI-bdl 균형 모니터링</td><td>FT 팀장</td></tr>
+    <tr><td>외부 압력·항의</td><td><span class="risk risk-l">낮음</span></td><td><span class="risk risk-m">중간</span></td><td>독립성 보장 장치, 언론 모니터링, 발주처와 사전 협의된 대응 매뉴얼</td><td>PM (이병덕)</td></tr>
+    <tr><td>합의 실패</td><td><span class="risk risk-l">낮음</span></td><td><span class="risk risk-m">중간</span></td><td>부분 합의 허용, 소수의견 부기, 추가 토론 시간 확보</td><td>리딩 퍼실</td></tr>
+    <tr><td>기술 시스템 장애</td><td><span class="risk risk-l">낮음</span></td><td><span class="risk risk-m">중간</span></td><td>AI-bdl 백업 시스템, 오프라인 진행 대안, 녹취 이중화</td><td>기술팀장</td></tr>
+    <tr><td>주차 혼잡</td><td><span class="risk risk-m">보통</span></td><td><span class="risk risk-l">작음</span></td><td>주차 사전 안내·예약·대중교통 권장, 인근 주차장 확보</td><td>운영팀</td></tr>
+    <tr><td>기상 이변</td><td><span class="risk risk-l">낮음</span></td><td><span class="risk risk-m">중간</span></td><td>실내 행사 기준이라 영향 작음 / 출발 안내·대중교통 안내</td><td>운영팀</td></tr>
+  </table>
+
+  <h3>7.2 SAFETY CODE — 점검 체크리스트</h3>
+
+  <h4>가. 행사 1주 전 (1차 점검)</h4>
+  <ul>
+    <li>☐ 행사 보험 가입 완료 (피보험인: 서울시교육청)</li>
+    <li>☐ 보험증권 원본 서울시교육청 제출 완료</li>
+    <li>☐ 지정 병원 사전 협약 체결</li>
+    <li>☐ 응급 의료 키트·AED 비치 확인</li>
+    <li>☐ 안전요원 배치 계획 확정 (인원·위치·교대)</li>
+    <li>☐ 비상사태별 대응 매뉴얼 운영팀 공유</li>
+    <li>☐ 화재 대피로·소화기 위치 점검</li>
+    <li>☐ 주차 안내·대중교통 안내문 작성</li>
+  </ul>
+
+  <h4>나. 행사 당일 아침 (현장 점검)</h4>
+  <ul>
+    <li>☐ 안전요원 배치 완료 확인</li>
+    <li>☐ 응급 키트·AED 작동 확인</li>
+    <li>☐ 발열 검사·손소독 비치 확인</li>
+    <li>☐ 비상 연락처 게시 확인 (지정 병원·119·발주처)</li>
+    <li>☐ 환기 시스템 작동 확인</li>
+    <li>☐ 비상 발전기 점검</li>
+    <li>☐ 출석 명부·연락처 보안 관리 확인</li>
+  </ul>
+
+  <h4>다. 행사 진행 중 (상시 점검)</h4>
+  <ul>
+    <li>☐ 매 라운드 시작·종료 시 안전 점검 (안전요원 보고)</li>
+    <li>☐ 참여자 컨디션 모니터링 (FT 팀장)</li>
+    <li>☐ 갈등 상황 발생 시 즉시 대응 (휴식·중재)</li>
+    <li>☐ 응급 상황 발생 시 즉시 119·지정 병원 연락</li>
+    <li>☐ 발주처 담당자에게 즉시 보고 (메일·전화)</li>
+  </ul>
+
+  <h3>7.3 행사 보험 (RFP III.3.라.4 의무)</h3>
+  <div class="callout blue">
+    <p><b>행사 보험 가입 — 피보험인: 서울특별시교육청</b></p>
+    <ul>
+      <li>화재·재해·인적 사고 등 종합 보장</li>
+      <li>참가자·운영자·외부 방문자 모두 포함</li>
+      <li>보험증권 <b>원본</b>을 서울특별시교육청에 제출</li>
+      <li>보험사·증권 번호·보장 범위는 발주처 사전 검토 후 가입</li>
+    </ul>
+  </div>
+
+  <h3>7.4 개인정보·보안</h3>
+  <ul>
+    <li>참여 시민 개인정보 수령 즉시 암호화 관리 (AES-256)</li>
+    <li>업무 종료 후 안전 파기 (절단·소각 또는 디지털 와이프)</li>
+    <li>사업 진행 중 생성된 모든 자료의 외부 공개·대여 금지 (발주처 사전 승인 시에만 예외)</li>
+    <li>녹취·녹화 자료는 별도 암호화 보관, 사업 종료 후 발주처 인도 또는 파기</li>
+  </ul>
+
+  <!-- VIII. 산출물 -->
+  <h2><span class="num">VIII</span> 산출물 및 납품 계획</h2>
+
+  <h3>8.1 산출물 일람</h3>
+  <table>
+    <tr><th>구분</th><th>산출물</th><th>형식</th><th>제출 시기</th><th>주관</th></tr>
+    <tr><td rowspan="4">결과보고</td><td>결과보고서 (요약보고서 별도)</td><td>hwp + pdf</td><td>12월 초</td><td>코리아스픽스</td></tr>
+    <tr><td>여론조사 통계분석 Table</td><td>excel</td><td>12월 초</td><td>글로벌리서치</td></tr>
+    <tr><td>정책제안문</td><td>hwp + ppt</td><td>12월 초</td><td>코리아스픽스</td></tr>
+    <tr><td>숙의공론 결과 인포그래픽</td><td>pdf</td><td>12월 초</td><td>코리아스픽스</td></tr>
+    <tr><td rowspan="2">백서</td><td>공론화 백서 (책자)</td><td>책자 50부 + hwp + pdf</td><td>계약 만료일 전</td><td>글로벌리서치</td></tr>
+    <tr><td>단계별 숙의공론과정 영상</td><td>영상파일 (4K + 편집본)</td><td>계약 만료일 전</td><td>코리아스픽스 + 영상 협력사</td></tr>
+    <tr><td>기록</td><td>녹취·회의록·동영상·사진 일체</td><td>원본 + 정리본</td><td>계약 만료일 전</td><td>코리아스픽스</td></tr>
+    <tr><td>참여자</td><td>토론 참여 시민 감사 서한</td><td>메일</td><td>행사 직후 + 결과 확정 후</td><td>코리아스픽스 + 발주처</td></tr>
+    <tr><td>정산</td><td>사업비 정산 보고서</td><td>전산 + 출력본</td><td>계약 만료일 전</td><td>양사 공동</td></tr>
+  </table>
+
+  <h3>8.2 산출물 품질 관리</h3>
+  <ul>
+    <li><b>3단계 검수</b> — 작성 → 양사 교차 검토 → 발주처 승인</li>
+    <li>백서 가독성 우선 디자인 — 글로벌리서치 주관, 시각화·편집 강화</li>
+    <li>모든 산출물 제출 전 발주처 사전 협의·승인 절차 준수</li>
+  </ul>
+
+  <!-- IX. 품질 관리 -->
+  <h2><span class="num">IX</span> 품질 관리</h2>
+
+  <h3>9.1 숙의 품질 지표 (DQI · Deliberation Quality Index)</h3>
+  <table>
+    <tr><th>지표</th><th>측정 방법</th><th>목표치</th><th>측정 시점</th></tr>
+    <tr><td>참여율</td><td>출석 / 등록 시민 수</td><td>≥ 90%</td><td>당일 등록 시</td></tr>
+    <tr><td>발언 균형</td><td>참여자별 발언량 지니계수 (AI-bdl 자동 측정)</td><td>≤ 0.3</td><td>실시간 모니터링</td></tr>
+    <tr><td>근거 활용</td><td>팩트 인용률 (AI-bdl 팩트체크 기록)</td><td>≥ 60%</td><td>실시간 + 사후 분석</td></tr>
+    <tr><td>상호 존중</td><td>부정 표현 비율 (녹취 분석)</td><td>≤ 5%</td><td>사후 분석</td></tr>
+    <tr><td>합의 수준</td><td>최종 동의율 (투표)</td><td>≥ 70%</td><td>합의 단계</td></tr>
+    <tr><td>학습 효과</td><td>사전·사후 인식 변화율</td><td>의제별 측정</td><td>여론조사 사전·사후</td></tr>
+  </table>
+
+  <h3>9.2 검수 프로세스</h3>
+  <div class="ascii">
+   [작성] ──▶ [양사 교차 검토] ──▶ [발주처 사전 협의] ──▶ [발주처 승인] ──▶ [제출]
+     │              │                      │                    │
+     ▼              ▼                      ▼                    ▼
+   코리아스픽스    글로벌리서치           발주처 담당자        결재선
+   또는 글로벌    또는 코리아스픽스       (심진근 외)         (국장·교육감)</div>
+
+  <h3>9.3 마일스톤별 검수 체크리스트</h3>
+  <table>
+    <tr><th>마일스톤</th><th>검수 항목</th></tr>
+    <tr><td>과업 수행계획서 (Phase 0)</td><td>RFP 항목 모두 반영 · 단계별 일정 명시 · 인력 배치 적정</td></tr>
+    <tr><td>의제 확정 (Phase 1)</td><td>의제선정협의체 의결 완료 · 발주처 승인</td></tr>
+    <tr><td>자료집 (Phase 2)</td><td>이해관계자 균형 · 추진협의체 검수 통과</td></tr>
+    <tr><td>참여단 모집 마감 (Phase 2)</td><td>층화 추출 완료 · 가족 비중 ≤ 5% · 다양성 검증</td></tr>
+    <tr><td>리허설 (Phase 2)</td><td>장비·동선·안전·시나리오 모두 점검</td></tr>
+    <tr><td>숙의 토론회 (Phase 2)</td><td>DQI 6개 지표 측정 · SAFETY CODE 이행</td></tr>
+    <tr><td>결과보고서·인포그래픽 (Phase 3)</td><td>STM 분석 적용 · 양사 교차 검토</td></tr>
+    <tr><td>백서 (Phase 3)</td><td>가독성 검증 · 글로벌리서치 주관 · 발주처 검수</td></tr>
+  </table>
+
+  <!-- X. 전년도 보완 -->
+  <h2><span class="num">X</span> 참고: 전년도 사업 평가 및 보완 방향</h2>
+  <p class="sub">전년도 사업의 성과를 계승하고, 기술협상 과정에서 논의된 보완점을 본 실행계획에 적극 반영합니다.</p>
+
+  <table>
+    <tr><th>#</th><th>전년도 평가 사항</th><th>본 사업 보완 방향</th><th>반영 위치</th></tr>
+    <tr><td>1</td><td>단계별 추진 일정의 명확성 강화 필요</td><td>의제선정·추진위·전문가인터뷰·숙의토론 세팅 등 단계별 기한이 명시된 마스터 일정표 사전 공유 + 마일스톤별 체크리스트</td><td>§V</td></tr>
+    <tr><td>2</td><td>대시민 홍보 강화 필요</td><td>4단계 PR 캠페인 (소개·의제선정·과정·결과) — 단계별 콘텐츠 종류·수량·플랫폼 명시. 인포그래픽·쇼츠·인터렉티브 운영</td><td>§III-3 가</td></tr>
+    <tr><td>3</td><td>모든 회의 회의록 작성 의무 이행</td><td>매 회의 녹취 + 회의록 작성 앱 (Otter·Daglo 등) 활용 SOP, 회의 내용의 실행계획 반영</td><td>§VI 보고 체계, §III-2 가</td></tr>
+    <tr><td>4</td><td>현장 안전관리 체계 강화</td><td>SAFETY CODE — 위험 매트릭스 + 점검 체크리스트(1주 전·당일·진행 중) + 행사 보험 + 지정 병원</td><td>§VII</td></tr>
+    <tr><td>5</td><td>토론장 환경에 맞춘 퍼실 운영</td><td>AI-bdl 통합 진행으로 별도 기록자 운영 회피, 컨퍼런스룸 좌석 제약 시 테이블 수 증설 (8명/13개)</td><td>§II ③, §III-2 라</td></tr>
+    <tr><td>6</td><td>서울교육 소통광장 공론화 메뉴 적극 활용</td><td>의제 소개·공론화 추진경과·사전교육 자료·과정·결과를 두 트랙으로 상시 게시하고 시민 피드백 상시 수렴</td><td>§III-3 나</td></tr>
+    <tr><td>7</td><td>대시민 컨택포인트 동반 홍보</td><td>의제 선정 단계부터 시민 의견 수렴 채널을 모든 홍보 콘텐츠에 동반 노출, 등록자에게 모집 우선 안내</td><td>§III-3 나</td></tr>
+    <tr><td>8</td><td>오프라인 토론회 외 사전 학습 보강</td><td>NotebookLM 기반 온라인 학습 캠페인 — 자료집 + 인터뷰 + 연구보고서 업로드, 24시간 시민 자가 학습, 질문 로그 본 토론 입력 활용</td><td>§II ④, §III-3 다</td></tr>
+    <tr><td>9</td><td>참여 시민 결과 보고·감사 메시지</td><td>1:1 결과 보고 메시지 (본인 의견 반영 여부 포함) + 교육감 명의 감사 서한 + 후속 정책 반영 알림</td><td>§III-4 라</td></tr>
+    <tr><td>10</td><td>결과보고회 적극 참여</td><td>PM 직접 참가 + 촬영 협조 + 영상을 PR 4단계 캠페인 자료로 재활용</td><td>§III-4 다, §V Phase 3</td></tr>
+    <tr><td>11</td><td>발주처 카운터파트너 체계 명확화</td><td>코리아스픽스 PM(대표이사 직접)이 발주처 전담 카운터파트너. PM·부PM 이중 책임 체계로 담당자 변경에 신속 대응</td><td>§VI 보고 체계</td></tr>
+    <tr><td>12</td><td>참여단 모집 시 가족 비중 균형</td><td>가족 단위 참여 비중 ≤ 5% 룰을 모집 공고에 명시, 층화 추출 단계에서 자동 검증</td><td>§III-2 나</td></tr>
+    <tr><td>13</td><td>백서 가독성 강화</td><td>글로벌리서치 주관 가독성 우선 디자인 — 시민 독자가 쉽게 읽을 수 있는 편집·시각화 + 인포그래픽 본문 통합</td><td>§III-4 나, §VIII</td></tr>
+  </table>
+
+  <footer>
+    <div class="org-mark">코리아스픽스(주) · 글로벌리서치(주) 컨소시엄</div>
+    <p>2026년 서울교육공론화 사업 용역 실행계획서 · 2026. 6.</p>
+  </footer>
+
+</div>
+</body>
+</html>
