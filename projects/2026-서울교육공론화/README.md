@@ -33,8 +33,8 @@ projects/2026-서울교육공론화/
 | 파일 | 내용 |
 |------|------|
 | `README.md` | **서울교육공론화 클립북** 안내 |
-| `seoul-edu-deliberation-clipbook_v0.1.0.html` | 사람이 보는 클립북 |
-| `seoul-edu-deliberation-clipbook-handoff_v0.1.0.md` | 봇이 보는 데이터 + 작업 지시 |
+| `seoul-edu-deliberation-clipbook_v0.2.0.html` | 사람이 보는 클립북 (A~F 6채널) |
+| `seoul-edu-deliberation-clipbook-handoff_v0.2.0.md` | 봇이 보는 데이터 + 작업 지시 |
 
 ### 3_실행계획서/
 | 파일 | 내용 |
@@ -43,7 +43,9 @@ projects/2026-서울교육공론화/
 | `트랙별_정리.md` | 7트랙 카테고리화 |
 | `마스터_일정표.md` | 단계 정의 (시점은 협의 후 확정) |
 | `협의필요_항목.md` | 클라이언트와 협의할 50+ 미정 항목 (A~K 카테고리) |
-| `실행계획서_v0.x.y.html` | 최종 산출물 (마스터 = HTML) ← 아직 미생성 |
+| `즉시_액션_체크리스트.md` | 킥오프 직후 6개 최우선 액션 |
+| **`실행계획서_내부용_v0.5.1.html`** | 우리 팀·컨소시엄용 작업 지침서 |
+| **`실행계획서_제출용_v0.5.0.html`** | 클라이언트(서울시교육청) 정식 제출용 |
 
 ---
 

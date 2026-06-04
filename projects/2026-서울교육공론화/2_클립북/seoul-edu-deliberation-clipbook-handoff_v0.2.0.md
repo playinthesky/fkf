@@ -1,12 +1,13 @@
 # HANDOFF — 서울교육 공론화 클립북
 
 - doc_type: clipbook (자료맵 아님. 실제 발신·보도 클립 모음)
-- doc_version: v0.1.0
+- doc_version: v0.2.0
 - status: draft (수집 진행 중)
 - generated: 2026-06-04
 - owner: Korea Speaks
 - key_fact: "서울교육 공론화"는 단일 전용 사이트 없음. 다채널 분산.
 - structure: 매체(channel) 1차축 → 연도순 클립(clip). 출처는 official_edu / press / research.
+- v0.2.0 변경: 채널 F (브랜드 자산·홍보 머티어리얼 소스) 신설 — 4단계 PR 콘텐츠 제작 시 필수
 
 ## 봇 작업 지시 (next actions)
 1. status=`verified` 클립의 URL은 신뢰. 게시판 번호(bbsSn)는 변동 가능 → 200 응답만 확인.
@@ -19,7 +20,7 @@
 ```json
 {
   "doc_type": "clipbook",
-  "doc_version": "v0.1.0",
+  "doc_version": "v0.2.0",
   "status": "draft",
   "generated": "2026-06-04",
   "subject": "서울교육 공론화",
@@ -69,6 +70,19 @@
         {"year": null, "title": "9시 등교 인접정책 학술분석", "source": "research", "url": "https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002278502", "status": "verified"},
         {"year": null, "title": "9시 등교제 효과분석", "source": "research", "url": "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11506773", "status": "verified"}
       ]
+    },
+    {
+      "id": "F", "media": "브랜드 자산·홍보 머티어리얼 소스",
+      "purpose": "4단계 PR 콘텐츠(인포그래픽·쇼츠·카드뉴스) 제작 시 클라이언트 브랜드 가이드 준수용. 클라이언트가 직접 제공하거나 공식 사이트에서 확보.",
+      "clips": [
+        {"year": null, "title": "서울시교육청 CI 가이드라인 (로고·서체·컬러)", "source": "official_edu", "url": null, "status": "gap"},
+        {"year": null, "title": "서울시교육청 공식 로고 (AI·SVG·PNG)", "source": "official_edu", "url": null, "status": "gap"},
+        {"year": null, "title": "서울시교육청 지정 서체 (한글·영문)", "source": "official_edu", "url": null, "status": "gap"},
+        {"year": null, "title": "서울교육 소통광장 디자인 가이드", "source": "official_edu", "url": "https://edu-policy.sen.go.kr/", "status": "channel_only"},
+        {"year": null, "title": "서울교육+플러스 브랜드 자산 (있다면)", "source": "official_edu", "url": null, "status": "gap"},
+        {"year": null, "title": "공론화 사업 전용 BI·심볼 (있다면)", "source": "official_edu", "url": null, "status": "gap"},
+        {"year": null, "title": "이전 연도 홍보물 소스 파일 (작년 PR-1~4 카드뉴스·인포그래픽 원본)", "source": "official_edu", "url": null, "status": "gap"}
+      ]
     }
   ],
   "gaps": [
@@ -76,7 +90,11 @@
     "공론화 전용 카드뉴스(인스타 개별 게시물)",
     "공론화 현장 사진 모음 / 블로그 현장 스케치",
     "연도별 추진사항 통합 타임라인(2018~현재)",
-    "공론화 운영 백서 단독본 / 제3자 외부 평가보고서"
+    "공론화 운영 백서 단독본 / 제3자 외부 평가보고서",
+    "[F채널] 서울시교육청 CI 가이드라인 PDF 또는 공식 페이지",
+    "[F채널] 로고 원본 파일 (AI/SVG/PNG)",
+    "[F채널] 지정 서체 (한글·영문) 파일 또는 라이선스 안내",
+    "[F채널] 이전 연도 홍보물 소스 (PSD/AI) — 작년 PR 카드뉴스·인포그래픽"
   ]
 }
 ```
