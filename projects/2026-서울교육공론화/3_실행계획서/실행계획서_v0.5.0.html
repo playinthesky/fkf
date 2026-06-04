@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 서울교육공론화 사업 실행계획서 v0.5.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F4EFE6; --ink:#14213D; --ink-soft:#3a4a6b;
+    --gold:#C68A00; --line:#d8cdb8; --card:#fbf8f1;
+    --green:#2f6b4f; --red:#9a3b2e; --teal:#2A9D8F;
+    --ax-blue:#1E3A5F; --ax-gold:#E9C46A;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:'IBM Plex Sans KR',sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:56px 28px 96px}
+
+  /* 표지 */
+  .cover{padding:80px 0 60px;border-bottom:3px double var(--ink);margin-bottom:48px}
+  .kicker{font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+  h1{font-family:'Gowun Batang',serif;font-weight:700;font-size:2.8rem;line-height:1.2;margin-bottom:18px}
+  .sub-title{font-size:1.1rem;color:var(--ink-soft);margin-bottom:36px}
+  .meta-box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px 26px;margin-top:24px}
+  .meta-box dt{display:inline-block;width:120px;font-weight:600;color:var(--ink);font-size:.92rem;padding:4px 0}
+  .meta-box dd{display:inline;font-size:.92rem;color:var(--ink-soft)}
+  .meta-box dl > div{margin:2px 0;border-bottom:1px dotted var(--line);padding-bottom:4px}
+  .meta-box dl > div:last-child{border-bottom:none}
+
+  /* 헤더 */
+  h2{font-family:'Gowun Batang',serif;font-size:1.8rem;font-weight:700;margin:64px 0 8px;padding-bottom:12px;border-bottom:2px solid var(--ink);display:flex;align-items:baseline;gap:14px}
+  h2 .num{font-size:1rem;color:var(--gold);font-family:'IBM Plex Sans KR';font-weight:700}
+  h3{font-family:'Gowun Batang',serif;font-size:1.25rem;font-weight:700;margin:36px 0 14px;color:var(--ax-blue);border-left:4px solid var(--gold);padding-left:12px}
+  h4{font-size:1.02rem;font-weight:600;margin:22px 0 10px;color:var(--ink)}
+  .sub{color:var(--ink-soft);font-size:.92rem;margin:8px 0 18px}
+
+  p{margin:10px 0;font-size:.94rem}
+  ul,ol{padding-left:24px;font-size:.94rem}
+  li{margin:5px 0}
+
+  /* 박스·표 */
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.88rem;background:var(--card);border-radius:8px;overflow:hidden;border:1px solid var(--line)}
+  th{background:var(--ax-blue);color:#fff;padding:9px 12px;text-align:left;font-weight:600}
+  td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  tr:nth-child(even) td{background:rgba(216,205,184,.18)}
+
+  .callout{background:#fff;border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:16px 20px;margin:22px 0;font-size:.92rem}
+  .callout b{color:var(--ink)}
+  .callout.red{border-left-color:var(--red);background:#fdf3f1}
+  .callout.teal{border-left-color:var(--teal);background:#f1faf8}
+
+  .badge{display:inline-block;font-size:.66rem;font-weight:600;padding:2px 8px;border-radius:20px;margin-right:6px;vertical-align:middle}
+  .b-must{background:rgba(154,59,46,.13);color:var(--red)}
+  .b-ax{background:rgba(42,157,143,.13);color:var(--teal)}
+  .b-hum{background:rgba(198,138,0,.13);color:var(--gold)}
+  .b-tbd{background:rgba(99,110,114,.13);color:#636E72}
+
+  /* 청중 카드 */
+  .audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+  .audience-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px}
+  .audience-card .ac-cat{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:5px}
+  .audience-card .ac-name{font-weight:600;font-size:1rem;margin-bottom:4px}
+  .audience-card .ac-desc{font-size:.85rem;color:var(--ink-soft)}
+
+  /* 트랙 카드 */
+  .track{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--ax-blue);border-radius:8px;padding:14px 18px;margin:10px 0}
+  .track .tr-num{font-family:'Gowun Batang',serif;color:var(--gold);font-weight:700;font-size:.95rem;margin-bottom:3px}
+  .track .tr-name{font-weight:600;font-size:1rem;margin-bottom:6px}
+  .track .tr-desc{font-size:.86rem;color:var(--ink-soft)}
+
+  /* 일정 */
+  .phase{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:10px 0;display:flex;gap:18px;align-items:flex-start}
+  .phase .ph-mark{flex:0 0 60px;font-family:'Gowun Batang',serif;font-weight:700;color:var(--gold);font-size:1rem;padding-top:1px}
+  .phase .ph-body{flex:1}
+  .phase .ph-title{font-weight:600;font-size:.98rem;margin-bottom:3px}
+  .phase .ph-desc{font-size:.86rem;color:var(--ink-soft)}
+
+  footer{margin-top:80px;padding-top:18px;border-top:1px solid var(--line);font-size:.78rem;color:var(--ink-soft);text-align:center}
+
+  /* 인쇄 */
+  @media print{
+    body{background:#fff}
+    .wrap{padding:0;max-width:none}
+    h2{page-break-before:always}
+    h2:first-of-type{page-break-before:auto}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 표지 -->
+  <section class="cover">
+    <div class="kicker">Korea Speaks · 실행계획서</div>
+    <h1>2026년 서울교육공론화 사업<br>실행계획서</h1>
+    <div class="sub-title">숙의컨설팅 워크플로우 다층 업무 지침서</div>
+    <div class="meta-box">
+      <dl>
+        <div><dt>사업명</dt><dd>2026년 서울교육공론화 사업 용역</dd></div>
+        <div><dt>발주처</dt><dd>서울특별시교육청 교육협력담당관 학부모·시민협력팀</dd></div>
+        <div><dt>수행</dt><dd>컨소시엄 — 코리아스픽스(주관) + 글로벌리서치(참여)</dd></div>
+        <div><dt>사업기간</dt><dd>계약일로부터 ~ 2026. 12. 31.</dd></div>
+        <div><dt>예산</dt><dd>₩109,816,000 (VAT 포함)</dd></div>
+        <div><dt>버전</dt><dd>v0.5.0 · 2026-06-04 · 초안 (협의 전)</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- I. 사업 개요 -->
+  <h2><span class="num">I</span> 사업 개요</h2>
+  <p class="sub">RFP·과업지시서·우리 제안서·기술협상·업무분담초안 종합. 상세 분석은 <code>1_RFP_Proposal_분석/</code>.</p>
+
+  <h3>1.1 사업 목적</h3>
+  <ul>
+    <li>교육정책 수립·집행 과정에 이해관계자·시민의 민주적 숙의 참여를 통한 갈등 사전 예방·해결</li>
+    <li>정책결정 과정에 다양한 교육 수요자의 참여 유도 → 의사결정 투명성·민주성·정책 수용성 제고</li>
+  </ul>
+
+  <h3>1.2 RFP 필수 수치</h3>
+  <table>
+    <tr><th>항목</th><th>수치</th></tr>
+    <tr><td>의제선정협의체</td><td>1~2회 · 10명</td></tr>
+    <tr><td>공론화추진협의체</td><td>3~4회 · 5명</td></tr>
+    <tr><td>FGI 그룹</td><td>4개 이상</td></tr>
+    <tr><td>여론조사 표본</td><td>의제별 1,500명 이상</td></tr>
+    <tr><td>오프라인 숙의 토론</td><td>참가자 100명 내외 · 총 1회</td></tr>
+    <tr><td>백서 분량</td><td>책자 50부 + 영상</td></tr>
+  </table>
+
+  <h3>1.3 RFP 의무 조건 (작년 누락 → 올해 반드시 이행)</h3>
+  <div class="callout red">
+    <p><b><span class="badge b-must">의무</span>안전 대책 (RFP III.3.라)</b></p>
+    <ul>
+      <li>화재·정전·테러·기상이변·감염병 비상사태 대응</li>
+      <li>긴급 환자 수송 + 지정 병원 확보</li>
+      <li>행사장 안전관리 (질서·안전·주차) 안내·실행</li>
+      <li><b>행사 보험 가입 (피보험인: 서울시교육청), 보험증권 원본 제출</b></li>
+    </ul>
+  </div>
+
+  <!-- II. 청중별 가이드 -->
+  <h2><span class="num">II</span> 청중별 가이드</h2>
+  <p class="sub">실행계획서는 다층 청중을 위한 업무 지침서. 자기 섹션을 찾아 읽으세요.</p>
+
+  <h3>2.1 외부 청중</h3>
+  <div class="audience-grid">
+    <div class="audience-card"><div class="ac-cat">외부 · 발주처</div><div class="ac-name">서울시교육청 (심진근 주무관)</div><div class="ac-desc">우리 활동의 결재·승인·모니터링 주체. → <b>§V-1</b> 보고 SOP</div></div>
+    <div class="audience-card"><div class="ac-cat">외부 · 결재</div><div class="ac-name">교육청 상급 결재자</div><div class="ac-desc">예산·결과 결재. 심진근 주무관을 통해 보고됨. → <b>§V-1</b></div></div>
+    <div class="audience-card"><div class="ac-cat">외부 · 위원회</div><div class="ac-name">의제선정협의체 (10명)</div><div class="ac-desc">의제 후보 검토·확정. → <b>§V-2</b></div></div>
+    <div class="audience-card"><div class="ac-cat">외부 · 위원회</div><div class="ac-name">공론화추진협의체 (5명)</div><div class="ac-desc">공론화 모델·절차 결정. → <b>§V-2</b></div></div>
+    <div class="audience-card"><div class="ac-cat">외부 · 부서</div><div class="ac-name">의제 관련 부서</div><div class="ac-desc">활동 모니터링·정책 반영. → <b>§V-1</b></div></div>
+    <div class="audience-card"><div class="ac-cat">외부 · 참여</div><div class="ac-name">시민참여단 (100명)</div><div class="ac-desc">숙의 토론 참가자. → <b>§V-3</b></div></div>
+    <div class="audience-card"><div class="ac-cat">외부 · 모집</div><div class="ac-name">모집 커뮤니티</div><div class="ac-desc">학부모회·시민단체·학교 네트워크. → <b>§V-3</b></div></div>
+    <div class="audience-card"><div class="ac-cat">외부 · 홍보</div><div class="ac-name">홍보 채널</div><div class="ac-desc">언론·소통광장·SNS. → <b>§V-4</b></div></div>
+  </div>
+
+  <h3>2.2 내부 청중 (코리아스픽스)</h3>
+  <div class="audience-grid">
+    <div class="audience-card"><div class="ac-cat">내부 · 운영</div><div class="ac-name">fKF 퍼실리테이터</div><div class="ac-desc">소그룹 토론 진행·중립성. → <b>§V-5</b></div></div>
+    <div class="audience-card"><div class="ac-cat">내부 · 운영</div><div class="ac-name">일일 스탭</div><div class="ac-desc">당일 등록·동선·기록. → <b>§V-5</b></div></div>
+  </div>
+
+  <h3>2.3 협력회사</h3>
+  <div class="audience-grid">
+    <div class="audience-card"><div class="ac-cat">컨소시엄 참여사</div><div class="ac-name">글로벌리서치(주)</div><div class="ac-desc">여론조사 1,500명 + 백서 제작. → <b>§V-6</b></div></div>
+    <div class="audience-card"><div class="ac-cat">외부 협력사</div><div class="ac-name">마마 미디어 <span class="badge b-tbd">정보 확인 필요</span></div><div class="ac-desc">사진·영상·음향. → <b>§V-6</b> · 계약 형태·담당자 확보 필요</div></div>
+  </div>
+
+  <!-- III. 코리아스픽스 접근법 -->
+  <h2><span class="num">III</span> 코리아스픽스 접근법 (외부 발신)</h2>
+  <p class="sub">우리가 어떻게 다르게 하는가. 클라이언트·위원회 발표 자료에 그대로 사용.</p>
+
+  <h3>3.1 항상 내장되는 우리 솔루션</h3>
+  <ul>
+    <li><b><span class="badge b-ax">AX</span>숙의형 데이터 분석 (STM)</b> — 정성 분석 + 구조적 토픽 모델링</li>
+    <li><b><span class="badge b-ax">AX</span>AX (Human + AI) 협업 방식</b> — 모든 활동에 인간 + AI 함께</li>
+    <li><b><span class="badge b-ax">AX</span>AI-bdl (AI 화백)</b> — 특허 출원 중 AI 퍼실리테이터, 숙의 토론 통합 운영</li>
+    <li><b><span class="badge b-ax">AX</span>NotebookLM Meetup</b> — 시민 학습 보강 캠페인 (구글코리아 협조)</li>
+  </ul>
+
+  <h3>3.2 작년(2025) 대비 11개 개선 포인트</h3>
+  <table>
+    <tr><th>#</th><th>작년 문제</th><th>올해 개선</th></tr>
+    <tr><td>1</td><td>단계별 기한 부재</td><td>마스터 일정 + 4단계 마일스톤</td></tr>
+    <tr><td>2</td><td>홍보 사실상 없음</td><td>4단계 PR 캘린더 + 소통광장 활용</td></tr>
+    <tr><td>3</td><td>회의록 미작성</td><td>녹취 + 회의록 자동화 앱 SOP</td></tr>
+    <tr><td>4</td><td>보험 미가입·미제출 외 안전 다수</td><td>SAFETY CODE 가동 (RFP 의무 이행)</td></tr>
+    <tr><td>5</td><td>퍼실 기록자 분리 요구 받음</td><td>AI-bdl 통합 운영 (사전 차단)</td></tr>
+    <tr><td>6</td><td>시민 컨택포인트 부재</td><td>컨택포인트 동반 홍보</td></tr>
+    <tr><td>7</td><td>시민 학습 자료 한계</td><td>NotebookLM Meetup 가동</td></tr>
+    <tr><td>8</td><td>땡큐 메시지 미발송</td><td>1:1 메시지 + 교육감 명의</td></tr>
+    <tr><td>9</td><td>결과보고회 불참</td><td>참가 + 촬영 + 홍보</td></tr>
+    <tr><td>10</td><td>카운터파트너 미정</td><td>재은 + 대표 직접 (차장 결정 전)</td></tr>
+    <tr><td>11</td><td>가족 모집↑ / 백서 가독성↓</td><td>모집 필터 + 글로벌리서치 백서</td></tr>
+  </table>
+
+  <div class="callout teal">
+    <p><b>⚠️ 작년 = 2025는 비정상년</b></p>
+    <p>2025년은 내란 영향으로 비정상 운영. 일정·구조를 그대로 매핑 ❌. 본 실행계획서의 일정·구조는 RFP + 정상년 패턴을 기준으로 합니다.</p>
+  </div>
+
+  <!-- IV. 7트랙 골조 -->
+  <h2><span class="num">IV</span> 7트랙 골조</h2>
+  <p class="sub">실행계획서의 활동 카테고리. 모든 청중이 자기 활동이 어느 트랙에 속하는지 알 수 있음.</p>
+
+  <div class="track"><div class="tr-num">트랙 1</div><div class="tr-name">일정 / 거버넌스</div><div class="tr-desc">추진협 운영 · 의제선정위 운영 · 마스터 일정 관리</div></div>
+  <div class="track"><div class="tr-num">트랙 2</div><div class="tr-name">홍보 / 소통 (4단계 PR)</div><div class="tr-desc">PR1 소개 → PR2 의제 선정·의견수렴 → PR3 숙의 과정 → PR4 결과 발표 / 소통광장 + 쇼츠·인포그래픽</div></div>
+  <div class="track"><div class="tr-num">트랙 3</div><div class="tr-name">숙의 품질 ⭐ AX 차별화</div><div class="tr-desc">AI-bdl + NotebookLM Meetup + 테이블 설계 + 퍼실 운영</div></div>
+  <div class="track"><div class="tr-num">트랙 4</div><div class="tr-name">참여단 관리</div><div class="tr-desc">가족 비중 필터 · 1:1 결과 메시지 · 교육감 명의 땡큐</div></div>
+  <div class="track" style="border-left-color:var(--red)"><div class="tr-num">트랙 5 🚨</div><div class="tr-name">안전 (SAFETY CODE)</div><div class="tr-desc">보험 가입·증서 제출 · 안전요원 · 지정병원 · 응급·주차 (RFP 의무사항)</div></div>
+  <div class="track"><div class="tr-num">트랙 6</div><div class="tr-name">운영 SOP</div><div class="tr-desc">회의록 (녹취+앱) · 결과보고회 참가·촬영 · 카운터파트너 운영</div></div>
+  <div class="track"><div class="tr-num">트랙 7</div><div class="tr-name">산출물 품질</div><div class="tr-desc">백서 가독성 (글로벌리서치) · DQI 측정 · 검수 체크리스트</div></div>
+
+  <!-- V. 청중별 발신·운영 계획 -->
+  <h2><span class="num">V</span> 청중별 발신·운영 계획</h2>
+
+  <h3>V-1. 클라이언트 보고 SOP</h3>
+  <p class="sub">서울시교육청 (심진근 주무관) · 상급 결재자 · 의제 관련 부서</p>
+  <ul>
+    <li><b>월말 추진현황 보고서</b>: 매월 말 기준 → 익월 5일까지 정기 제출 (과업지시서 의무)</li>
+    <li><b>주간 진행 현황 보고</b>: 코리아스픽스 PM → 심진근 주무관 (메일 또는 카톡)</li>
+    <li><b>수시 특이사항 보고</b>: 이슈 발생 즉시</li>
+    <li><b>추진단 회의 참석</b>: 발주기관 요청 시 — 회의록 작성·실행계획 반영 필수</li>
+    <li><b>모든 회의 회의록</b>: 녹취 + 작성 앱 사용 (작년 미이행)</li>
+  </ul>
+  <p><b>컨택</b>: ✉️ sim8546@sen.go.kr · ☎️ 02-2282-8682 / 02-6033-5664 · <span class="badge b-tbd">Airtable 미구축</span> 현재는 휴먼 직접 발송</p>
+
+  <h3>V-2. 위원회 운영 (의제선정협의체 · 공론화추진협의체)</h3>
+  <table>
+    <tr><th>항목</th><th>의제선정협의체</th><th>공론화추진협의체</th></tr>
+    <tr><td>인원</td><td>10명</td><td>5명</td></tr>
+    <tr><td>회의 횟수</td><td>1~2회</td><td>3~4회</td></tr>
+    <tr><td>역할</td><td>의제 후보 검토·최종 의제 확정</td><td>공론화 세부 절차 설계·의결·결과 분석·공표</td></tr>
+    <tr><td>위원 인선</td><td>학계·시민·교사·학부모 균형</td><td>의장(호선) + 분야 전문가</td></tr>
+    <tr><td>운영 방식</td><td>대면 + 서면 탄력 운영</td><td>대면 + 서면 탄력 운영</td></tr>
+    <tr><td>회의 주기</td><td colspan="2">사안별 수시 (정기 주기 없음)</td></tr>
+  </table>
+  <div class="callout">
+    <p><b>위원회별 산출물</b></p>
+    <ul>
+      <li>위촉장 · 회의 자료 · 회의록 (녹취 포함) · 의결 결과</li>
+      <li>위원장·부위원장 호선 절차 (추진협의체)</li>
+    </ul>
+  </div>
+
+  <h3>V-3. 시민참여단 모집·운영·종료 후</h3>
+  <ul>
+    <li><b>모집 공고</b>: 학생·학부모·교직원·일반시민 균형, 지역 안배. 학부모회·시민단체·학교 네트워크 통해 배포</li>
+    <li><b>가족 비중 필터</b> ⚠️ — 작년 가족 비중 과다 문제. 룰 사전 정의 후 모집 공고에 명시</li>
+    <li><b>사전조사 + 층화 추출</b>: 글로벌리서치 협력</li>
+    <li><b>자료집 배포</b>: 의제 관련 입장별 균형 자료. 숙의 직전 발송</li>
+    <li><b>오리엔테이션</b>: Zoom 또는 대면 — 공론화 의미·진행 순서·자료집 안내</li>
+    <li><b>NotebookLM Meetup</b>: 자료집만으로 부족한 학습 보강 (작년 추가자료 요청 거절 사례 대응)</li>
+    <li><b>숙의토론 본 행사</b>: 1일 종일 · 100명 · 토요일</li>
+    <li><b>종료 후 1:1 결과 보고 메시지</b> + <b>교육감 명의 땡큐 메시지</b> (글로벌팀 제안 채택)</li>
+  </ul>
+
+  <h3>V-4. 홍보 4단계 PR</h3>
+  <table>
+    <tr><th>단계</th><th>시점</th><th>메시지</th><th>도구</th></tr>
+    <tr><td>PR-1 소개</td><td>의제 선정 직전까지</td><td>"서울교육공론화란? 올해 추진"</td><td>인포그래픽 · 쇼츠</td></tr>
+    <tr><td>PR-2 의제 선정 + 의견수렴 2차</td><td>의제 확정 직후 ~ 숙의 시작 전</td><td>"의제 + 의견 받습니다"</td><td>카드뉴스 · 인터렉티브</td></tr>
+    <tr><td>PR-3 숙의 과정 공유</td><td>추진협 가동 ~ 숙의 직후</td><td>"지금 숙의 중"</td><td>쇼츠 · 진행 리포트</td></tr>
+    <tr><td>PR-4 결과 발표</td><td>환류 단계</td><td>"결과 + 정책 반영"</td><td>인포그래픽 · 보도자료</td></tr>
+  </table>
+  <p><b>매체</b>: 서울교육 소통광장 (의제·공론화 두 트랙) <span class="badge b-must">아이디 확보 필수</span> · 소셜미디어 · 서울시교육청 자체 홍보 매체</p>
+  <p><b>시민 컨택포인트</b>: PR 모든 단계에서 동반 노출 (작년 부재 → 올해 신설)</p>
+
+  <h3>V-5. fKF 퍼실 매뉴얼 · 일일 스탭 가이드</h3>
+  <p class="sub">내부 운영팀 가이드. 별도 매뉴얼 분기 예정.</p>
+  <ul>
+    <li><b>퍼실 모집 분리</b>: 학부모 퍼실 + 전문 퍼실 별도 모집·교육</li>
+    <li><b>퍼실 교육</b>: 명목집단기법(NGT)·갈등관리·AI-bdl 협업 운영</li>
+    <li><b>리딩 퍼실</b>: 이병덕 대표 직접 (50% 참여)</li>
+    <li><b>FT 팀장</b>: 갈등관리·전체 흐름 통제</li>
+    <li><b>일일 스탭</b>: 등록·안내·동선·기록·기술 (최대성 본부장 IT 총괄)</li>
+    <li><b>테이블 증설</b>: 교육청 컨퍼런스룸 사용 시 인원↓ → 테이블 수↑ 운영</li>
+  </ul>
+
+  <h3>V-6. 협력사 협업 SOP</h3>
+  <div class="callout">
+    <p><b>🤝 컨소시엄 원칙: 모든 서류작업은 글로벌리서치와 공동</b></p>
+    <p>예산서 · 선금 신청 · 과업 수행계획서 · 결과보고서 · 백서 등 — 단독 작성·제출 ❌</p>
+  </div>
+  <h4>글로벌리서치 (컨소시엄 참여사)</h4>
+  <ul>
+    <li>여론조사 설계·운영 (1,500명 이상 의제별)</li>
+    <li>통계 분석·데이터 처리</li>
+    <li>토론 참여자 사전·사후 설문 운영</li>
+    <li><b>공론화 백서 구성·제작 총괄</b> (가독성 우선)</li>
+    <li>주간 진행 공유 회의 (양사)</li>
+    <li>모든 성과품 양사 교차 검토</li>
+  </ul>
+  <h4>마마 미디어 <span class="badge b-tbd">정보 확인 필요</span></h4>
+  <ul>
+    <li>담당: 사진·영상·음향</li>
+    <li>회사명·담당자·계약 형태 확보 후 본 섹션 보완 예정</li>
+    <li>활용: 단계별 숙의공론과정 영상 (성과품 의무 — RFP 8.나) + 현장 사진</li>
+  </ul>
+
+  <!-- VI. 마스터 일정 -->
+  <h2><span class="num">VI</span> 마스터 일정 (단계 정의)</h2>
+  <p class="sub">RFP 명시 3단계 + 사전 준비. 구체 시점은 클라이언트 협의 후 확정 (<b>§VIII</b>).</p>
+
+  <div class="phase"><div class="ph-mark">Phase 0</div><div class="ph-body"><div class="ph-title">사전 준비 (킥오프 ~ 의제 의견수렴 시작 전)</div><div class="ph-desc">사내 착수·카운터파트너 정리·보험 가입·AI-bdl 셋업·NotebookLM 협조요청·소통광장 아이디·SAFETY CODE 1차 점검·과업 수행계획서 (15일 내)·예산서 + 선금 신청</div></div></div>
+
+  <div class="phase"><div class="ph-mark">Phase 1</div><div class="ph-body"><div class="ph-title">의제발굴·선정 (RFP: 6월~7월)</div><div class="ph-desc">시민 의제 의견수렴 (소통광장 + 자체 폼) · FGI 4개 이상 그룹 · 부서 의견 조회 · 의제선정협의체 운영 (1~2회) · 최종 의제 확정 · PR-1 소개 가동</div></div></div>
+
+  <div class="phase"><div class="ph-mark">Phase 2</div><div class="ph-body"><div class="ph-title">공론화 모델 설계 + 숙의과정 (RFP: 8월~10월)</div><div class="ph-desc">공론화추진협의체 가동 (3~4회) · 전문가 인터뷰 · 자료집 제작 · 시민참여단 모집 (가족 필터) · 사전조사 · 참여단 OT · NotebookLM Meetup · 공론장 조성·리허설 · 숙의토론 본 회차 (1일·100명·토요일) · PR-2/3 가동</div></div></div>
+
+  <div class="phase"><div class="ph-mark">Phase 3</div><div class="ph-body"><div class="ph-title">결과 공표 (RFP: 11월~12월)</div><div class="ph-desc">참가자 1:1 메시지 + 교육감 땡큐 · 결과보고서·정책제안문·인포그래픽 (12월 초) · 결과보고회 참가·촬영·홍보 · 백서 제작 (글로벌리서치 가독성 우선) · 추진협 최종 회의 · 12/31 종료</div></div></div>
+
+  <p class="sub" style="margin-top:18px"><b>상세 일정</b>: <code>3_실행계획서/마스터_일정표.md</code> · <b>크리티컬 패스</b>: 의제 확정 · 자료집 완료 · 숙의 본 회차 · 백서 최종</p>
+
+  <!-- VII. 즉시 액션 -->
+  <h2><span class="num">VII</span> 즉시 액션 체크리스트 (킥오프 직후)</h2>
+  <p class="sub">상세는 <code>3_실행계획서/즉시_액션_체크리스트.md</code>. 자동화 미구축 → 모두 휴먼 직접 처리.</p>
+
+  <table>
+    <tr><th>#</th><th>액션</th><th>담당</th></tr>
+    <tr><td>🔴 1</td><td><b>클라이언트 회의 일정 확인</b> — 의제선정위·공론화추진위·내부 보고</td><td>사장님 → 심진근 주무관</td></tr>
+    <tr><td>🔴 2</td><td><b>예산서 첨부 → 선금 신청</b></td><td>코리아스픽스 + 글로벌리서치 공동</td></tr>
+    <tr><td>🔴 3</td><td>컨소시엄 협력 합의 (양사 주간 회의 셋업)</td><td>코리아스픽스 PM ↔ 글로벌리서치 PM</td></tr>
+    <tr><td>🔴 4</td><td>행사 보험 가입 + 증권 원본 제출</td><td>사장님 (행정)</td></tr>
+    <tr><td>🔴 5</td><td>서울교육 소통광장 공론화 메뉴 아이디·권한 확보</td><td>사장님 → 심진근 주무관</td></tr>
+    <tr><td>🔴 6</td><td>과업 수행계획서 작성·제출 (계약 후 15일 이내)</td><td>코리아스픽스 + 글로벌리서치 공동</td></tr>
+  </table>
+
+  <!-- VIII. 협의 필요 -->
+  <h2><span class="num">VIII</span> 협의 필요 항목 (사장님 ↔ 클라이언트)</h2>
+  <p class="sub">RFP·과업지시서·자료에 없는 항목. 휴먼 컨설턴트가 클라이언트와 협의해 확정. 상세는 <code>3_실행계획서/협의필요_항목.md</code>.</p>
+
+  <table>
+    <tr><th>카테고리</th><th>주요 협의 항목</th></tr>
+    <tr><td>A. 일정</td><td>의제 의견수렴 시작·마감, 의제선정협의체 회의일, 추진협의체 회차별 일자, 숙의토론 정확한 일자(토요일), 결과보고회 일자, 백서 최종 제출일</td></tr>
+    <tr><td>B. 위원회 구성</td><td>의제선정위·추진위 위원 인선, 위원장·부위원장 호선</td></tr>
+    <tr><td>C. 의제</td><td>의제 의견수렴 방식, 선정 원칙·배제 이슈</td></tr>
+    <tr><td>D. 참여단</td><td>가족 비중 제한 룰, 층화 추출 기준, 수당 단가</td></tr>
+    <tr><td>E. 퍼실</td><td>학부모/전문 비율, AI-bdl 도입 클라이언트 사전 안내</td></tr>
+    <tr><td>F. AX 차별화</td><td>AI-bdl·NotebookLM Meetup 도입 동의, 구글코리아 협조 공문</td></tr>
+    <tr><td>G. 홍보</td><td>소통광장 아이디·권한, 4단계 PR 검수 프로세스, 시민 컨택포인트 운영</td></tr>
+    <tr><td>H. 안전</td><td>보험 종류·보장 범위, 숙의 장소, 지정병원, 안전요원 배치</td></tr>
+    <tr><td>I. 운영</td><td>카운터파트너, 결과보고회 형식·촬영 권한</td></tr>
+    <tr><td>J. 산출물</td><td>백서 분량·구성·디자인, 검수 프로세스</td></tr>
+    <tr><td>K. 예산</td><td>선금·중도금·잔금 지급 일정</td></tr>
+  </table>
+
+  <!-- IX. 변경 이력·다음 단계 -->
+  <h2><span class="num">IX</span> 변경 이력 · 다음 단계</h2>
+
+  <h3>9.1 버전 흐름</h3>
+  <table>
+    <tr><th>버전</th><th>의미</th><th>상태</th></tr>
+    <tr><td>v0.5.0</td><td>분석 + 클립북 종합 HTML 초안</td><td>현재 · 휴먼 컨설턴트 검토</td></tr>
+    <tr><td>v0.6.x</td><td>사장님 질문 답변 반영</td><td>예정</td></tr>
+    <tr><td>v0.7.x ~ v0.9.x</td><td>클라이언트 협의 결과 반영</td><td>예정</td></tr>
+    <tr><td>v1.0</td><td>확정</td><td>예정</td></tr>
+    <tr><td>v1.0 → .hwpx / .pptx</td><td>변환물 (별동수 또는 휴먼 직접)</td><td>예정</td></tr>
+  </table>
+
+  <h3>9.2 다음 단계</h3>
+  <ol>
+    <li>사장님 검토 → "확인 필요" 항목 보완 (마마 미디어 정보, fKF 정의 등)</li>
+    <li><b>§VII 즉시 액션 6개</b>를 휴먼 컨설턴트가 처리 시작</li>
+    <li>클라이언트와 첫 미팅에서 <b>§VIII 협의 필요</b> 답 확보</li>
+    <li>협의 결과를 v0.6 → v0.9로 반영</li>
+    <li>확정 시 별동수에게 HWPX·PPT 변환 의뢰</li>
+  </ol>
+
+  <h3>9.3 이 실행계획서를 만든 입력 자료</h3>
+  <ul>
+    <li>RFP (제안요청서) — 텍스트 추출 완료</li>
+    <li>과업지시서 — 텍스트 추출 완료</li>
+    <li>우리 제안서 — 텍스트 추출 ❌ (60MB 이미지 PDF · 우회 경로 필요)</li>
+    <li>기술협상 (사장님 메모) — 11이슈</li>
+    <li>업무분담 초안 — Google Doc</li>
+    <li>작년사례 (2025 추진협 1차 회의자료) — ⚠️ 비정상년</li>
+    <li>서울교육공론화 클립북 v0.1.0 — 매체별 사전 자료 지형도</li>
+  </ul>
+
+  <footer>
+    <p>코리아스픽스 · 2026 서울교육공론화 사업 실행계획서 · v0.5.0 (2026-06-04)</p>
+    <p>마스터 산출물 (HTML) — HWPX·PPT는 변환물</p>
+  </footer>
+
+</div>
+</body>
+</html>
