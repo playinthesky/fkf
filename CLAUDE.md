@@ -96,5 +96,6 @@
 
 - **메인 작업 환경**: 회사 데스크탑 (비서실장)
 - **보조**: 노트북/모바일 → Slack 연동
+- **Slack 워크스페이스**: fkf2026
 - GitHub 저장소: `playinthesky/fkf`
 - 브랜치: `claude/slack-session-fhGkI`
