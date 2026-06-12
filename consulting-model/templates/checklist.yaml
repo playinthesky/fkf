@@ -1,0 +1,200 @@
+# 코리아스픽스 숙의 컨설팅 체크리스트
+# 버전: v0.1.0
+# 용도: AI/시스템이 읽을 수 있는 체크리스트
+
+version: "0.1.0"
+last_updated: "2026-05-12"
+
+stages:
+  plan:
+    name: "수주"
+    phase: 1
+    duration: "1-4주"
+    tasks:
+      - id: plan-01
+        task: "문의 내용 슬랙 기록"
+        channel: "#client-프로젝트명"
+        required: true
+      - id: plan-02
+        task: "발주처 기본 정보 확인"
+        required: true
+      - id: plan-03
+        task: "1차 상담 일정 확정"
+        required: true
+      - id: plan-04
+        task: "상담 기록 작성"
+        required: true
+      - id: plan-05
+        task: "표면 니즈 vs 실제 니즈 구분"
+        required: true
+      - id: plan-06
+        task: "의사결정 구조 파악"
+        required: true
+      - id: plan-07
+        task: "사업 범위 명확화"
+        required: true
+      - id: plan-08
+        task: "예산 산출"
+        required: true
+      - id: plan-09
+        task: "일정표 작성"
+        required: true
+      - id: plan-10
+        task: "제안서 초안 → 대표 검토"
+        required: true
+      - id: plan-11
+        task: "제안 발표 완료"
+        required: true
+      - id: plan-12
+        task: "계약 체결"
+        required: true
+      - id: plan-13
+        task: "착수금 수령"
+        required: true
+
+  build:
+    name: "설계"
+    phase: 2
+    duration: "2-4주"
+    tasks:
+      - id: build-01
+        task: "핵심 의제 1문장 정의"
+        required: true
+      - id: build-02
+        task: "하위 쟁점 도출"
+        required: true
+      - id: build-03
+        task: "참여자 유형 정의"
+        required: true
+      - id: build-04
+        task: "모집 인원 확정"
+        required: true
+      - id: build-05
+        task: "숙의 형식 결정"
+        required: true
+      - id: build-06
+        task: "전체 일정표 작성"
+        required: true
+      - id: build-07
+        task: "퍼실리테이터 배치 계획"
+        required: true
+      - id: build-08
+        task: "학습자료 작성"
+        required: true
+      - id: build-09
+        task: "AI BDL 시스템 점검"
+        required: false
+      - id: build-10
+        task: "실행계획서 작성"
+        required: true
+      - id: build-11
+        task: "발주처 승인"
+        required: true
+
+  launch:
+    name: "착수"
+    phase: 3
+    duration: "1-2주"
+    tasks:
+      - id: launch-01
+        task: "모집 마감·인원 확인"
+        required: true
+      - id: launch-02
+        task: "참여 확정 연락"
+        required: true
+      - id: launch-03
+        task: "사전 안내문 발송"
+        required: true
+      - id: launch-04
+        task: "대기자 확보"
+        required: true
+      - id: launch-05
+        task: "퍼실리테이터 가이드 배포"
+        required: true
+      - id: launch-06
+        task: "리허설 진행"
+        required: true
+      - id: launch-07
+        task: "장소 답사"
+        required: true
+      - id: launch-08
+        task: "장비 테스트"
+        required: true
+      - id: launch-09
+        task: "참여자 키트 제작"
+        required: true
+      - id: launch-10
+        task: "D-1 전체 점검"
+        required: true
+
+  run:
+    name: "실행"
+    phase: 4
+    duration: "4-12주"
+    tasks:
+      - id: run-01
+        task: "참석 체크"
+        required: true
+      - id: run-02
+        task: "전체 일정·규칙 안내"
+        required: true
+      - id: run-03
+        task: "참여 동의서 서명"
+        required: true
+      - id: run-04
+        task: "학습자료 배부"
+        required: true
+      - id: run-05
+        task: "소그룹 배정"
+        required: true
+      - id: run-06
+        task: "토론 진행·기록"
+        required: true
+      - id: run-07
+        task: "투표 진행"
+        required: true
+      - id: run-08
+        task: "결과 집계·발표"
+        required: true
+      - id: run-09
+        task: "참여자 만족도 조사"
+        required: true
+      - id: run-10
+        task: "일일 보고 작성"
+        required: true
+
+  evolve:
+    name: "환류"
+    phase: 5
+    duration: "2-4주"
+    tasks:
+      - id: evolve-01
+        task: "토론 기록 통합·정리"
+        required: true
+      - id: evolve-02
+        task: "투표 결과 통계 분석"
+        required: true
+      - id: evolve-03
+        task: "보고서 초안 작성"
+        required: true
+      - id: evolve-04
+        task: "대표 검토"
+        required: true
+      - id: evolve-05
+        task: "최종본 완성·HWPX 변환"
+        required: true
+      - id: evolve-06
+        task: "발표 진행"
+        required: true
+      - id: evolve-07
+        task: "정산 완료"
+        required: true
+      - id: evolve-08
+        task: "팀 회고 미팅"
+        required: true
+      - id: evolve-09
+        task: "컨설팅 모델 PR 생성"
+        required: false
+      - id: evolve-10
+        task: "사례집 업데이트"
+        required: false
