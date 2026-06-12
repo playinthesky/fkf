@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>fKF 정회원 로그인</title>
+<style>
+  :root { --navy:#0A1628; --navy2:#1B3A6B; --gold:#C9A227; --bg:#FAF8F3; --line:#E4DFD4; --ink:#1C2536; --muted:#6B7280; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif; background:var(--bg);
+         min-height:100vh; display:flex; align-items:center; justify-content:center; padding:1.5rem; color:var(--ink); }
+  .wrap { width:100%; max-width:420px; }
+  .brand { text-align:center; margin-bottom:1.75rem; }
+  .brand .mark { display:inline-block; font-size:1.9rem; font-weight:900; letter-spacing:-.02em;
+                 background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 100%);
+                 -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .brand .sub { display:block; font-size:.78rem; color:var(--muted); margin-top:.35rem; letter-spacing:.04em; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:1rem; padding:2rem 1.75rem;
+          box-shadow:0 18px 40px rgba(10,22,40,.10); }
+  .card h1 { font-size:1.05rem; font-weight:800; margin-bottom:1.25rem; }
+  .card h1 .accent { color:var(--gold); }
+  .field { margin-bottom:1rem; }
+  .field label { display:block; font-size:.78rem; font-weight:700; color:var(--muted); margin-bottom:.4rem; }
+  .field input { width:100%; border:1.5px solid var(--line); border-radius:.55rem; padding:.7rem .9rem;
+                 font-size:.95rem; outline:none; transition:border-color .15s,box-shadow .15s; }
+  .field input:focus { border-color:var(--navy2); box-shadow:0 0 0 3px rgba(27,58,107,.12); }
+  .btn { width:100%; border:none; border-radius:.6rem; padding:.85rem; font-size:.95rem; font-weight:800;
+         color:#fff; cursor:pointer; background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 100%);
+         box-shadow:0 6px 16px rgba(10,22,40,.25); transition:transform .12s,opacity .12s; margin-top:.4rem; }
+  .btn:hover { opacity:.94; transform:translateY(-1px); }
+  .error { background:#FCEBEA; border:1px solid #F2C2BE; color:#A33A30; font-size:.82rem;
+           border-radius:.5rem; padding:.65rem .85rem; margin-bottom:1.1rem; }
+  .hint { text-align:center; font-size:.74rem; color:var(--muted); margin-top:1.1rem; line-height:1.6; }
+  .hint a { color:var(--navy2); text-decoration:none; font-weight:700; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <span class="mark">fKF</span>
+    <span class="sub">한국퍼실리테이터연합회 · 정회원 포털</span>
+  </div>
+  <div class="card">
+    <h1>정회원 <span class="accent">로그인</span></h1>
+    {% if error %}<div class="error">⚠️ {{ error }}</div>{% endif %}
+    <form method="POST" autocomplete="off">
+      <div class="field">
+        <label for="name">이름</label>
+        <input id="name" name="name" type="text" placeholder="예: 홍길동" required autofocus>
+      </div>
+      <div class="field">
+        <label for="member_no">회원번호</label>
+        <input id="member_no" name="member_no" type="text" placeholder="예: F2021-0007" required>
+      </div>
+      <button class="btn" type="submit">로그인</button>
+    </form>
+    <p class="hint">
+      회원번호를 모르시거나 정보 수정이 필요하면<br>
+      카카오톡에서 <a>한국퍼실리테이터연합회</a> 를 검색해 문의해주세요.
+    </p>
+  </div>
+</div>
+</body>
+</html>
